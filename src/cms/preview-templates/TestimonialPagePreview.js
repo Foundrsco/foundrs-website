@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { TestimonialPageTemplate } from '../../templates/testimonial-page'
+import { TestimonialPageTemplate } from '../../templates/testimonial'
 
 const TestimonialPagePreview = ({ entry, getAsset }) => {
   const entryBlurbs = entry.getIn(['data', 'intro', 'blurbs'])

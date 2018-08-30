@@ -15,7 +15,7 @@ export const TestimonialTemplate = ({
   url,
   helmet
 }) => {
-  const TesimonialContent = contentComponent || Content
+  const TestimonialContent = contentComponent || Content
 
   return (
     <section className='section'>
