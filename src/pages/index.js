@@ -20,19 +20,7 @@ import VisibleSplitText from '../components/VisibleSplitText'
 import TestimonialItem from '../components/TestimonialItem'
 import Columns from 'react-bulma-components/lib/components/columns'
 import Chevrons from '../components/Chevrons'
-
-class SectionTriangle extends React.Component {
-  render () {
-    const {foreground, background} = this.props
-    return (
-      <div style={{backgroundColor: background, lineHeight: '0'}}>
-        <svg overflow='visible' width='100' height='87' style={{width: '100%', height: 'auto'}} viewBox='0 0 100 87'>
-          <polygon points='0 87, 50 0, 50 0, 100 87' stroke={foreground} fill={foreground} />
-        </svg>
-      </div>
-    )
-  }
-}
+import SectionTriangle from '../components/SectionTriangle'
 
 class CommunitySection extends React.Component {
   render () {
@@ -174,6 +162,7 @@ export default class IndexPage extends React.Component {
             height={typeof (window) === 'undefined' ? 1000 : window.innerHeight}
             style={{zIndex: -1, width: '100%', height: 'auto', position: 'absolute', top: 0, left: 0, right: 0}} />
         </Section>
+        <SiteFooter />
       </div>
     )
   }

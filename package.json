@@ -1,7 +1,7 @@
 {
   "name": "foundrs",
   "description": "Website for the Foundrs community",
-  "version": "1.0",
+  "version": "1.1.4",
   "author": "Stef Lewandowski",
   "dependencies": {
     "bloomer": "^0.6.3",
