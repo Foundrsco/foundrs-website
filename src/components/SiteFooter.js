@@ -1,4 +1,5 @@
 import Footer from 'react-bulma-components/lib/components/footer'
+import React from 'react'
 
 export default class SiteFooter extends React.Component {
   render () {

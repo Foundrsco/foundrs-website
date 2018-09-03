@@ -76,7 +76,7 @@ class CommunitySection extends React.Component {
             <Heading className='has-text-centered is-fullwidth'>
               <VisibleSplitText text='A community of the world’s best founders' />
             </Heading>
-            <Content>
+            <Content style={{maxWidth: '40rem', margin: 'auto'}}>
               <p>Foundrs is an invite-only community of entrepreneurs who share in one simple idea:  by parking our egos, letting down our guard and helping each other through meaningful and honest conversation, we will build better businesses together.</p>
 
               <p>Businesses that aren't just better for our founders, our people and our customers, but better for the world we leave behind us.</p>
