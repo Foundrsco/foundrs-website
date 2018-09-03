@@ -13,6 +13,7 @@ export const TestimonialTemplate = ({
   company,
   title,
   url,
+  image,
   helmet
 }) => {
   const TestimonialContent = contentComponent || Content
@@ -32,6 +33,7 @@ TestimonialTemplate.propTypes = {
   company: PropTypes.string,
   title: PropTypes.string,
   url: PropTypes.string,
+  image: PropTypes.string,
   helmet: PropTypes.instanceOf(Helmet)
 }
 
@@ -47,6 +49,7 @@ const Testimonial = ({ data }) => {
       name={post.frontmatter.name}
       company={post.frontmatter.company}
       title={post.frontmatter.title}
+      image={post.frontmatter.image}
       url={post.frontmatter.url}
     />
   )
@@ -70,6 +73,7 @@ export const pageQuery = graphql`
         company
         title
         url
+        image
         testimonial
       }
     }

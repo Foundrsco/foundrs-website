@@ -14,7 +14,31 @@ const TemplateWrapper = ({ children }) => (
     <Typekit kitId='eiw6zwb' />
     <Navbar />
     <div>{children()}</div>
+    <div style={{display: 'none'}}>
+      <svg className='clip-svg'>
+        <defs>
+          <clipPath id='equilateral-clip-path' clipPathUnits='objectBoundingBox'>
+            <polygon points='0 0.87, 0.5 0, 0.5 0, 1 0.87' />
+          </clipPath>
+        </defs>
+      </svg>
 
+      <svg className='clip-svg'>
+        <defs>
+          <clipPath id='inverted-equilateral-clip-path' clipPathUnits='objectBoundingBox'>
+            <polygon points='0 0, 1 0, 0.5 0.87, 0 0' />
+          </clipPath>
+        </defs>
+      </svg>
+
+      <svg className='clip-svg'>
+        <defs>
+          <clipPath id='full-clip-path' clipPathUnits='objectBoundingBox'>
+            <polygon points='0 1, 0.5 0, 0.5 0, 1 1' />
+          </clipPath>
+        </defs>
+      </svg>
+    </div>
   </div>
 )
 

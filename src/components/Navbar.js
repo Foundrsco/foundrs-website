@@ -57,9 +57,12 @@ export default class Navigation extends React.Component {
               <Link className='has-text-weight-bold' onClick={deactivateMenu} to="/values">Values</Link>
             </Navbar.Item>
             <Navbar.Item as="div">
-              <Link className='has-text-weight-bold' onClick={deactivateMenu} to="/apply">
-                <Button className='has-text-weight-bold' color='black'>Apply</Button>
-              </Link>
+              <Button 
+                renderAs={Link} 
+                onClick={deactivateMenu} 
+                to="/apply" 
+                className='has-text-weight-bold' 
+                color='black'>Apply</Button>
             </Navbar.Item>
           </Navbar.Container>
         </Navbar.Menu>

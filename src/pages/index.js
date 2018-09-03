@@ -9,22 +9,17 @@ import Hero from 'react-bulma-components/lib/components/hero'
 import Container from 'react-bulma-components/lib/components/container'
 import Content from 'react-bulma-components/lib/components/content'
 import Heading from 'react-bulma-components/lib/components/heading'
+import Box from 'react-bulma-components/lib/components/box'
+import Card from 'react-bulma-components/lib/components/card'
 import Plx from 'react-plx'
 import SplitText from 'react-pose-text'
 import TrackVisibility from 'react-on-screen'
 import posed from 'react-pose'
 import SiteFooter from '../components/SiteFooter'
-
-const charPoses = {
-  enter: {
-    opacity: 1,
-    delay: ({ charIndex }) => charIndex * 5
-  },
-  exit: {
-    opacity: 0,
-    delay: ({ charIndex }) => charIndex * 2
-  }
-}
+import VisibleSplitText from '../components/VisibleSplitText'
+import TestimonialItem from '../components/TestimonialItem'
+import Columns from 'react-bulma-components/lib/components/columns'
+import Chevrons from '../components/Chevrons'
 
 class SectionTriangle extends React.Component {
   render () {
@@ -35,23 +30,6 @@ class SectionTriangle extends React.Component {
           <polygon points='0 87, 50 0, 50 0, 100 87' stroke={foreground} fill={foreground} />
         </svg>
       </div>
-    )
-  }
-}
-
-class VisibleSplitText extends React.Component {
-  render () {
-    const {text} = this.props
-    return (
-      <TrackVisibility>
-        {({ isVisible }) => <SplitText
-          visible={isVisible}
-          initialPose='exit'
-          pose={isVisible ? 'enter' : 'exit'}
-          charPoses={charPoses}>
-          {text}
-        </SplitText>}
-      </TrackVisibility>
     )
   }
 }
@@ -69,6 +47,7 @@ class CommunitySection extends React.Component {
         }
       ]
     }]
+    const {testimonials} = this.props
     return (
       <Hero id='community' size='fullheight' color='black'>
         <Hero.Body className='has-text-centered is-fullwidth'>
@@ -77,13 +56,24 @@ class CommunitySection extends React.Component {
               <VisibleSplitText text='A community of the world’s best founders' />
             </Heading>
             <Content style={{maxWidth: '40rem', margin: 'auto'}}>
-              <p>Foundrs is an invite-only community of entrepreneurs who share in one simple idea:  by parking our egos, letting down our guard and helping each other through meaningful and honest conversation, we will build better businesses together.</p>
-
-              <p>Businesses that aren't just better for our founders, our people and our customers, but better for the world we leave behind us.</p>
+              <p className='is-4'>Foundrs is an invite-only community of entrepreneurs who share in one simple idea:  by parking our egos, letting down our guard and helping each other through meaningful and honest conversation, we will build better businesses together.</p>
+              <p className='is-4'>Businesses that aren't just better for our founders, our people and our customers, but better for the world we leave behind us.</p>
             </Content>
+            <div style={{marginTop: '4rem'}}>
+              <Columns centered>
+                {testimonials.map((item) => (
+                  <Columns.Column>
+                    <TestimonialItem
+                      testimonial={item.node}
+                      key={item.id} />
+                  </Columns.Column>
+                ))}
+              </Columns>
+            </div>
           </Container>
         </Hero.Body>
       </Hero>
+
     )
   }
 }
@@ -91,19 +81,28 @@ class CommunitySection extends React.Component {
 export default class IndexPage extends React.Component {
   render () {
     const { data } = this.props
-    const { edges: posts } = data.allMarkdownRemark
+    const { edges: testimonials } = data.allMarkdownRemark
 
     return (
       <div style={{perspective: '1px', transformStyle: 'preserve-3d'}}>
-        <Hero size='fullheight'>
-          <Hero.Body>
-            <AnimatedLogo stroke='#0a0a0a' fill='none' weight='4' />
-          </Hero.Body>
-        </Hero>
+        <div style={{position: 'relative'}}>
+          <Hero size='fullheight'>
+            <Hero.Body>
+              <AnimatedLogo stroke='#0a0a0a' fill='none' weight='4' />
+            </Hero.Body>
+          </Hero>
+          <Chevrons weight={4}
+            id='intro'
+            foreground='#0a0a0a'
+            background='#ffffff'
+            width={typeof (window) === 'undefined' ? 1000 : window.innerWidth}
+            height={typeof (window) === 'undefined' ? 1000 : window.innerHeight * 3.5}
+            style={{zIndex: -1, width: '100%', height: '350vh', position: 'absolute', top: 0, left: 0}} />
+        </div>
 
-        <SectionTriangle background='#ffffff' foreground='#0a0a0a' />
+        <SectionTriangle background='transparent' foreground='#0a0a0a' />
 
-        <CommunitySection />
+        <CommunitySection testimonials={testimonials.slice(0, 2)} />
 
         <SectionTriangle background='#0a0a0a' foreground='#ffffff' />
 
@@ -111,7 +110,7 @@ export default class IndexPage extends React.Component {
           <Hero.Body className='has-text-centered is-fullwidth'>
             <Container className='has-text-centered'>
               <Heading className='has-text-centered is-fullwidth'>
-                <VisibleSplitText text='Purpose' />
+                <VisibleSplitText text='Our Purpose' />
               </Heading>
               <Heading className='has-text-centered is-fullwidth'>
                 <VisibleSplitText text='We exist to enable Foundrs to give more, know more and be more' />
@@ -126,7 +125,7 @@ export default class IndexPage extends React.Component {
           <Hero.Body className='has-text-centered is-fullwidth'>
             <Container className='has-text-centered'>
               <Heading className='has-text-centered is-fullwidth'>
-                <VisibleSplitText text='Mission' />
+                <VisibleSplitText text='Our Mission' />
               </Heading>
               <Heading className='has-text-centered is-fullwidth'>
                 <VisibleSplitText text='To establish an active Foundrs community in 100 major cities globally' />
@@ -141,7 +140,7 @@ export default class IndexPage extends React.Component {
           <Hero.Body className='has-text-centered is-fullwidth'>
             <Container className='has-text-centered'>
               <Heading className='has-text-centered is-fullwidth'>
-                <VisibleSplitText text='Vision' />
+                <VisibleSplitText text='Our Vision' />
               </Heading>
               <Heading className='has-text-centered is-fullwidth'>
                 <VisibleSplitText text='The world’s best companies are run by the standards that our Foundrs set' />
@@ -150,44 +149,30 @@ export default class IndexPage extends React.Component {
           </Hero.Body>
         </Hero>
 
-        <section className='section'>
-          <div className='container'>
-
-            {posts
-              .map(({ node: post }) => (
-                <div
-                  className='content'
-                  style={{ padding: '2em 4em' }}
-                  key={post.id}
-                >
-                  <blockquote>
-                    {post.frontmatter.testimonial}
-                  </blockquote>
-                  <p>
-                    <span>
-                      {post.frontmatter.name} &mdash;<span>&nbsp;</span>
-                      {post.frontmatter.title}
-                    </span>
-                    <span>&nbsp;</span>
-                    <Link className='has-text-primary' to={post.frontmatter.url}>
-                      {post.frontmatter.company}
-                    </Link>
-                  </p>
-                </div>
-              ))}
-          </div>
-        </section>
-        <Section size='large' className='has-text-centered'>
+        <Section size='large' className='has-text-centered' style={{position: 'relative'}}>
           <FadeUpWhenVisible>
-            <Heading className='has-text-centered is-fullwidth'>
-              <VisibleSplitText text='Would you like to join?' />
-            </Heading>
-            <Link to='/apply' className='has-text-centered'>
-              <Button className='is-large' color='black'>
-                How to apply
-              </Button>
-            </Link>
+            <div style={{maxWidth: '30rem', margin: 'auto'}}>
+              <Card>
+                <Card.Content>
+                  <Heading className='has-text-centered is-fullwidth'>
+                    <VisibleSplitText text='Would you like to join?' />
+                  </Heading>
+                  <div className='has-text-centered'>
+                    <Button renderAs={Link} to='/apply' className='is-large' color='black'>
+                      How to apply
+                    </Button>
+                  </div>
+                </Card.Content>
+              </Card>
+            </div>
           </FadeUpWhenVisible>
+          <Chevrons weight={4}
+            id='intro'
+            foreground='#0a0a0a'
+            background='#ffffff'
+            width={typeof (window) === 'undefined' ? 1000 : window.innerWidth}
+            height={typeof (window) === 'undefined' ? 1000 : window.innerHeight}
+            style={{zIndex: -1, width: '100%', height: 'auto', position: 'absolute', top: 0, left: 0, right: 0}} />
         </Section>
       </div>
     )
@@ -218,6 +203,7 @@ export const pageQuery = graphql`
             title
             company
             url
+            image
             testimonial            
             date(formatString: "MMMM DD, YYYY")
           }
