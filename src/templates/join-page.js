@@ -1,25 +1,66 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Content, { HTMLContent } from '../components/Content'
+import ContentDisplay, { HTMLContent } from '../components/Content'
+import Content from 'react-bulma-components/lib/components/content'
+import Container from 'react-bulma-components/lib/components/container'
+import Section from 'react-bulma-components/lib/components/section'
+import Heading from 'react-bulma-components/lib/components/heading'
+import Hero from 'react-bulma-components/lib/components/hero'
+import PageTransition from 'gatsby-plugin-page-transitions'
+import triangle from '../img/foundrs-black-triangle.svg'
 
 export const JoinPageTemplate = ({ title, content, contentComponent }) => {
-  const PageContent = contentComponent || Content
-
+  const PageContent = contentComponent || ContentDisplay
+  let formHeight = 800
+  if (typeof (window) !== 'undefined') {
+    formHeight = window.innerHeight - 80
+  }
   return (
-    <section className='section section--gradient'>
-      <div className='container'>
-        <div className='columns'>
-          <div className='column is-10 is-offset-1'>
-            <div className='section'>
-              <h2 className='title is-size-3 has-text-weight-bold is-bold-light'>
-                {title}
-              </h2>
-              <PageContent className='content' content={content} />
+    <PageTransition
+      defaultStyle={{
+        transition: 'opacity 200ms cubic-bezier(0.47, 0, 0.75, 0.72)',
+        opacity: 0,
+        position: 'absolute',
+        width: '100%'
+      }}
+      transitionStyles={{
+        entering: { opacity: 0 },
+        entered: { opacity: 1 },
+        exiting: { opacity: 0 }
+      }}
+      transitionTime={200}
+    >
+      <Section style={{borderBottom: '1px solid #222'}}>
+        <Container>
+          <Content>
+            <Hero size='large'>
+              <Hero.Body className='has-text-centered is-fullwidth'>
+                <Heading className='has-text-centered is-fullwidth'>{title}</Heading>
+              </Hero.Body>
+            </Hero>
+            <div>
+              <div>
+                <img alt='Title' src={triangle} style={{height: '3.25rem'}} />
+              </div>
+              <div style={{maxWidth: '40em', margin: 'auto'}}>
+                <PageContent className='content' content={content} />
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
+
+          </Content>
+        </Container>
+      </Section>
+
+      <iframe
+        class='airtable-embed'
+        src='https://airtable.com/embed/shr8vC92ceFTAATb5?backgroundColor=orange'
+        frameborder='0'
+        onmousewheel=''
+        width='100%'
+        height={formHeight}
+        style={{background: 'transparent', border: '1px solid #ccc;'}} />
+
+    </PageTransition>
   )
 }
 
