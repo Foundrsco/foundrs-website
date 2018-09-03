@@ -57,8 +57,7 @@ export const JoinPageTemplate = ({ title, content, contentComponent }) => {
       <iframe
         class='airtable-embed'
         src='https://airtable.com/embed/shr8vC92ceFTAATb5?backgroundColor=orange'
-        frameborder='0'
-        onmousewheel=''
+        frameBorder='0'
         width='100%'
         height={formHeight}
         style={{background: 'transparent', border: '1px solid #ccc;'}} />

@@ -2,7 +2,11 @@ import React from 'react'
 
 export default class Chevrons extends React.Component {
   render () {
-    const {foreground, background, style, id, weight, width, height} = this.props
+    const {foreground, background, id, weight, width, height} = this.props
+    let {rotation, style} = this.props
+    rotation = rotation || 0
+    style = style || {}
+    style['transform'] = `rotate(${rotation})`
     return (
       <svg width={width} height={height} overflow='visible' style={style}
         viewBox={`0 0 ${width} ${height}`}>

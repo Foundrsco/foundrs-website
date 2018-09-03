@@ -41,7 +41,7 @@ export default class Navigation extends React.Component {
           <Link style={{lineHeight: '0'}} to="/" onClick={deactivateMenu}><img alt='Foundrs' src={logo} height='48' width='48' style={{height: '3.25rem', width: '3.25rem'}} /></Link>
           
           <Navbar.Burger
-            active={open}
+            active={open.toString()}
             onClick={toggleMenu}
           />
         </Navbar.Brand>

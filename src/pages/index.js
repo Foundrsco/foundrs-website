@@ -21,6 +21,7 @@ import TestimonialItem from '../components/TestimonialItem'
 import Columns from 'react-bulma-components/lib/components/columns'
 import Chevrons from '../components/Chevrons'
 import SectionTriangle from '../components/SectionTriangle'
+import TestimonialGrid from '../components/TestimonialGrid'
 
 class CommunitySection extends React.Component {
   render () {
@@ -47,17 +48,7 @@ class CommunitySection extends React.Component {
               <p className='is-4'>Foundrs is an invite-only community of entrepreneurs who share in one simple idea:  by parking our egos, letting down our guard and helping each other through meaningful and honest conversation, we will build better businesses together.</p>
               <p className='is-4'>Businesses that aren't just better for our founders, our people and our customers, but better for the world we leave behind us.</p>
             </Content>
-            <div style={{marginTop: '4rem'}}>
-              <Columns centered>
-                {testimonials.map((item) => (
-                  <Columns.Column>
-                    <TestimonialItem
-                      testimonial={item.node}
-                      key={item.id} />
-                  </Columns.Column>
-                ))}
-              </Columns>
-            </div>
+            <TestimonialGrid testimonials={testimonials} />
           </Container>
         </Hero.Body>
       </Hero>
@@ -66,10 +57,34 @@ class CommunitySection extends React.Component {
   }
 }
 
+const Fader = posed.div({
+  starting: {
+    transition: { duration: 500 },
+    opacity: 0.1
+  },
+  scrolling: {
+    transition: { duration: 500 },
+    opacity: 1
+  }
+})
+
+class FadeInOnStart extends React.Component {
+  render () {
+    const {children} = this.props
+    return (
+      <TrackVisibility offset={-100}>
+        {({ isVisible }) => <Fader pose={isVisible ? 'scrolling' : 'starting'}>{children}</Fader>}
+      </TrackVisibility>
+    )
+  }
+}
+
 export default class IndexPage extends React.Component {
   render () {
     const { data } = this.props
-    const { edges: testimonials } = data.allMarkdownRemark
+    const { edges: testimonials } = data.allTestimonials
+    const { edges: sponsors } = data.allSponsors
+    console.log({sponsors})
 
     return (
       <div style={{perspective: '1px', transformStyle: 'preserve-3d'}}>
@@ -79,13 +94,15 @@ export default class IndexPage extends React.Component {
               <AnimatedLogo stroke='#0a0a0a' fill='none' weight='4' />
             </Hero.Body>
           </Hero>
-          <Chevrons weight={4}
-            id='intro'
-            foreground='#0a0a0a'
-            background='#ffffff'
-            width={typeof (window) === 'undefined' ? 1000 : window.innerWidth}
-            height={typeof (window) === 'undefined' ? 1000 : window.innerHeight * 3.5}
-            style={{zIndex: -1, width: '100%', height: '350vh', position: 'absolute', top: 0, left: 0}} />
+          <FadeInOnStart>
+            <Chevrons weight={4}
+              id='intro'
+              foreground='#0a0a0a'
+              background='#ffffff'
+              width={typeof (window) === 'undefined' ? 1000 : window.innerWidth}
+              height={typeof (window) === 'undefined' ? 1000 : window.innerHeight * 3.5}
+              style={{zIndex: -1, width: '100%', height: '350vh', position: 'absolute', top: 0, left: 0}} />
+          </FadeInOnStart>
         </div>
 
         <SectionTriangle background='transparent' foreground='#0a0a0a' />
@@ -97,12 +114,27 @@ export default class IndexPage extends React.Component {
         <Hero size='fullheight' color='white'>
           <Hero.Body className='has-text-centered is-fullwidth'>
             <Container className='has-text-centered'>
+              <div style={{maxWidth: '10rem', margin: 'auto', marginBottom: '8rem'}}>
+                <SectionTriangle
+                  style={{margin: 'auto', marginTop: '-50vw'}}
+                  foreground='transparent'
+                  background='transparent'
+                  stroke='#0a0a0a'
+                  weight='6' />
+                <SectionTriangle
+                  style={{margin: 'auto', marginTop: '-6rem'}}
+                  foreground='transparent'
+                  background='transparent'
+                  stroke='#0a0a0a'
+                  weight='6' />
+              </div>
               <Heading className='has-text-centered is-fullwidth'>
                 <VisibleSplitText text='Our Purpose' />
               </Heading>
               <Heading className='has-text-centered is-fullwidth'>
                 <VisibleSplitText text='We exist to enable Foundrs to give more, know more and be more' />
               </Heading>
+              <TestimonialGrid testimonials={testimonials.slice(2, 4)} />
             </Container>
           </Hero.Body>
         </Hero>
@@ -112,12 +144,27 @@ export default class IndexPage extends React.Component {
         <Hero size='fullheight' color='black'>
           <Hero.Body className='has-text-centered is-fullwidth'>
             <Container className='has-text-centered'>
+              <div style={{maxWidth: '10rem', margin: 'auto', marginBottom: '8rem'}}>
+                <SectionTriangle
+                  style={{margin: 'auto', marginTop: '-50vw'}}
+                  foreground='transparent'
+                  background='transparent'
+                  stroke='#ffffff'
+                  weight='6' />
+                <SectionTriangle
+                  style={{margin: 'auto', marginTop: '-6rem'}}
+                  foreground='transparent'
+                  background='transparent'
+                  stroke='#ffffff'
+                  weight='6' />
+              </div>
               <Heading className='has-text-centered is-fullwidth'>
                 <VisibleSplitText text='Our Mission' />
               </Heading>
               <Heading className='has-text-centered is-fullwidth'>
                 <VisibleSplitText text='To establish an active Foundrs community in 100 major cities globally' />
               </Heading>
+              <TestimonialGrid testimonials={testimonials.slice(4, 6)} />
             </Container>
           </Hero.Body>
         </Hero>
@@ -127,19 +174,55 @@ export default class IndexPage extends React.Component {
         <Hero size='fullheight' color='white'>
           <Hero.Body className='has-text-centered is-fullwidth'>
             <Container className='has-text-centered'>
+              <div style={{maxWidth: '10rem', margin: 'auto', marginBottom: '8rem'}}>
+                <SectionTriangle
+                  style={{margin: 'auto', marginTop: '-50vw'}}
+                  foreground='transparent'
+                  background='transparent'
+                  stroke='#0a0a0a'
+                  weight='6' />
+                <SectionTriangle
+                  style={{margin: 'auto', marginTop: '-6rem'}}
+                  foreground='transparent'
+                  background='transparent'
+                  stroke='#0a0a0a'
+                  weight='6' />
+              </div>
               <Heading className='has-text-centered is-fullwidth'>
                 <VisibleSplitText text='Our Vision' />
               </Heading>
               <Heading className='has-text-centered is-fullwidth'>
                 <VisibleSplitText text='The world’s best companies are run by the standards that our Foundrs set' />
               </Heading>
+              <div style={{marginTop: '8rem'}}>
+                <Heading className='has-text-centered is-fullwidth is-4'>
+                  <VisibleSplitText text='With sponsorship from' />
+                </Heading>
+                {false && sponsors && <Columns>
+                  <Columns.Column>
+                    {sponsors.split(0, 3).map((sponsor) => (
+                      <Columns.Column>
+                        <div>With sponsorship from</div>
+                      </Columns.Column>
+                    ))}
+                  </Columns.Column>
+                  <Columns.Column>
+                    {sponsors.split(3, 6).map((sponsor) => (
+                      <Columns.Column>
+                        <div>With sponsorship from</div>
+                      </Columns.Column>
+                    ))}
+                  </Columns.Column>
+                </Columns>}
+              </div>
             </Container>
           </Hero.Body>
         </Hero>
 
-        <Section size='large' className='has-text-centered' style={{position: 'relative'}}>
+        <Section size='large' className='has-text-centered' style={{position: 'relative', marginTop: '-50vh'}}>
+          <SectionTriangle background='transparent' foreground='#0a0a0a' />
           <FadeUpWhenVisible>
-            <div style={{maxWidth: '30rem', margin: 'auto'}}>
+            <div style={{maxWidth: '30rem', margin: 'auto', marginTop: '-50vh'}}>
               <Card>
                 <Card.Content>
                   <Heading className='has-text-centered is-fullwidth'>
@@ -154,12 +237,14 @@ export default class IndexPage extends React.Component {
               </Card>
             </div>
           </FadeUpWhenVisible>
-          <Chevrons weight={4}
+          <Chevrons
+            rotation={180}
+            weight={4}
             id='intro'
             foreground='#0a0a0a'
             background='#ffffff'
             width={typeof (window) === 'undefined' ? 1000 : window.innerWidth}
-            height={typeof (window) === 'undefined' ? 1000 : window.innerHeight}
+            height={typeof (window) === 'undefined' ? 1000 : window.innerHeight * 1.5}
             style={{zIndex: -1, width: '100%', height: 'auto', position: 'absolute', top: 0, left: 0, right: 0}} />
         </Section>
         <SiteFooter />
@@ -170,7 +255,10 @@ export default class IndexPage extends React.Component {
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
+    allTestimonials: PropTypes.shape({
+      edges: PropTypes.array
+    }),
+    allSponsors: PropTypes.shape({
       edges: PropTypes.array
     })
   })
@@ -178,7 +266,7 @@ IndexPage.propTypes = {
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allMarkdownRemark(
+    allTestimonials: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] },
       filter: { frontmatter: { templateKey: { eq: "testimonial" } }}
     ) {
@@ -195,6 +283,22 @@ export const pageQuery = graphql`
             image
             testimonial            
             date(formatString: "MMMM DD, YYYY")
+          }
+        }
+      }
+    }
+    allSponsors: allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] },
+      filter: { frontmatter: { templateKey: { eq: "sponsor" } }}
+    ) {
+      edges {
+        node {         
+          id
+          
+          frontmatter {
+            templateKey
+            name
+            image
           }
         }
       }

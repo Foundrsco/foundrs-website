@@ -51,10 +51,9 @@ const word = [LetterF, LetterO, LetterU, LetterN, LetterD, LetterR, LetterS]
 class FoundrsWord extends React.Component {
   render () {
     const {weight, className} = this.props
-    const parallaxData = [
-    ]
+
     return (
-      <Plx parallaxData={parallaxData}className='foundrs-word'>
+      <div className='foundrs-word'>
         {word.map((WordLetter, i) =>
           <Letter
             key={i}
@@ -63,7 +62,7 @@ class FoundrsWord extends React.Component {
             weight={weight}
             style={{width: '100%'}} />
         )}
-      </Plx>
+      </div>
     )
   }
 }
