@@ -14,6 +14,7 @@ const TemplateWrapper = ({ children }) => (
     <Typekit kitId='eiw6zwb' />
     <Navbar />
     <div>{children()}</div>
+
   </div>
 )
 

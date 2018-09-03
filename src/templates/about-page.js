@@ -8,6 +8,8 @@ import Heading from 'react-bulma-components/lib/components/heading'
 import Hero from 'react-bulma-components/lib/components/hero'
 import PageTransition from 'gatsby-plugin-page-transitions'
 import triangle from '../img/foundrs-black-triangle.svg'
+import FadeUpWhenVisible from '../components/FadeUpWhenVisible'
+import SiteFooter from '../components/SiteFooter'
 
 export const AboutPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || ContentDisplay
@@ -33,7 +35,9 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
           <Content>
             <Hero size='large'>
               <Hero.Body className='has-text-centered is-fullwidth'>
-                <Heading className='has-text-centered is-fullwidth'>{title}</Heading>
+                <FadeUpWhenVisible>
+                  <Heading className='has-text-centered is-fullwidth'>{title}</Heading>
+                </FadeUpWhenVisible>
               </Hero.Body>
             </Hero>
 
@@ -49,6 +53,7 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
         </Container>
       </Section>
       <Section />
+      <SiteFooter />
     </PageTransition>
   )
 }
