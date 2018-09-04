@@ -41,6 +41,20 @@ class CommunitySection extends React.Component {
       <Hero id='community' size='fullheight' color='black'>
         <Hero.Body className='has-text-centered is-fullwidth'>
           <Container className='has-text-centered is-fullwidth'>
+            <div style={{maxWidth: '10rem', margin: 'auto', marginBottom: '8rem'}}>
+              <SectionTriangle
+                style={{margin: 'auto', marginTop: '-50vw'}}
+                foreground='transparent'
+                background='transparent'
+                stroke='#ffffff'
+                weight='6' />
+              <SectionTriangle
+                style={{margin: 'auto', marginTop: '-6rem'}}
+                foreground='transparent'
+                background='transparent'
+                stroke='#ffffff'
+                weight='6' />
+            </div>
             <Heading className='has-text-centered is-fullwidth'>
               <VisibleSplitText text='A community of the world’s best founders' />
             </Heading>
@@ -52,7 +66,6 @@ class CommunitySection extends React.Component {
           </Container>
         </Hero.Body>
       </Hero>
-
     )
   }
 }
@@ -161,7 +174,7 @@ export default class IndexPage extends React.Component {
                   stroke='#0a0a0a'
                   weight='6' />
               </div>
-              <Heading className='has-text-centered is-fullwidth'>
+              <Heading className='has-text-centered is-fullwidth has-text-weight-light'>
                 <VisibleSplitText text='Our Purpose' />
               </Heading>
               <Heading className='has-text-centered is-fullwidth'>
@@ -191,7 +204,7 @@ export default class IndexPage extends React.Component {
                   stroke='#ffffff'
                   weight='6' />
               </div>
-              <Heading className='has-text-centered is-fullwidth'>
+              <Heading className='has-text-weight-light has-text-centered is-fullwidth'>
                 <VisibleSplitText text='Our Mission' />
               </Heading>
               <Heading className='has-text-centered is-fullwidth'>
@@ -221,7 +234,7 @@ export default class IndexPage extends React.Component {
                   stroke='#0a0a0a'
                   weight='6' />
               </div>
-              <Heading className='has-text-centered is-fullwidth'>
+              <Heading className='has-text-centered is-fullwidth has-text-weight-light'>
                 <VisibleSplitText text='Our Vision' />
               </Heading>
               <Heading className='has-text-centered is-fullwidth'>
@@ -243,7 +256,7 @@ export default class IndexPage extends React.Component {
             <div style={{maxWidth: '30rem', margin: 'auto', marginTop: '-50vh'}}>
               <Card>
                 <Card.Content>
-                  <Heading className='has-text-centered is-fullwidth'>
+                  <Heading className='has-text-weight-light has-text-centered is-fullwidth'>
                     <VisibleSplitText text='Would you like to join?' />
                   </Heading>
                   <div className='has-text-centered'>

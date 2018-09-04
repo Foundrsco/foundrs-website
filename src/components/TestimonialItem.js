@@ -6,17 +6,14 @@ import VisibleSplitText from './VisibleSplitText'
 import FadeUpWhenVisible from './FadeUpWhenVisible'
 import quoteStart from '../img/quote-marks-start.svg'
 import quoteEnd from '../img/quote-marks-end.svg'
+import Imgix from 'react-imgix'
 
 export default class TestimonialItem extends React.Component {
   render () {
     const {testimonial} = this.props
-    const clipped = {
-      clipPath: 'url(#inverted-equilateral-clip-path)',
-      margin: 'auto',
-      padding: '1rem'
-    }
+
     return (
-      <div
+      <article
         style={{maxWidth: '24rem', margin: 'auto'}}
       >
         <FadeUpWhenVisible>
@@ -25,24 +22,31 @@ export default class TestimonialItem extends React.Component {
           </div>
         </FadeUpWhenVisible>
         <FadeUpWhenVisible>
-          <div>
-            <Image
-              size='128x128'
+          <figure className='image is-128x128'>
+            <Imgix
+              width={256}
+              height={256}
               alt={`A photo of ${testimonial.frontmatter.name}`}
-              src={`/img/${testimonial.frontmatter.image}`}
-              style={clipped}
+              src={`https://foundrs.imgix.net/${testimonial.frontmatter.image}`}
             />
-            <p>
-              <span>
-                {testimonial.frontmatter.name} &mdash;<span>&nbsp;</span>
-                {testimonial.frontmatter.title}<span>&nbsp;</span>
-                {testimonial.frontmatter.company}
-              </span>
 
-            </p>
-          </div>
+          </figure>
+          <p>
+            <span>
+              {testimonial.frontmatter.name} &mdash;<span>&nbsp;</span>
+              {testimonial.frontmatter.title}<span>&nbsp;</span>
+              {testimonial.frontmatter.company}
+            </span>
+          </p>
         </FadeUpWhenVisible>
         <style jsx>{`
+          .image {
+            margin: auto;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+            -webkit-clip-path: polygon(0% 13%, 50% 100%, 100% 13%);
+            clip-path: polygon(0% 13%, 50% 100%, 100% 13%);
+          }
           .quote:before {
             background-image: url(${quoteStart});
             background-repeat: no-repeat;
@@ -65,7 +69,7 @@ export default class TestimonialItem extends React.Component {
             margin-left: 1rem;
           }
         `}</style>
-      </div>
+      </article>
     )
   }
 }
