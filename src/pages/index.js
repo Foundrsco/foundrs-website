@@ -23,6 +23,7 @@ import Chevrons from '../components/Chevrons'
 import SectionTriangle from '../components/SectionTriangle'
 import TestimonialGrid from '../components/TestimonialGrid'
 import TriangularMotif from '../components/TriangularMotif'
+import SponsorsGrid from '../components/SponsorsGrid'
 
 class CommunitySection extends React.Component {
   render () {
@@ -56,39 +57,6 @@ class CommunitySection extends React.Component {
           </Container>
         </Hero.Body>
       </Hero>
-    )
-  }
-}
-
-class SponsorsGrid extends React.Component {
-  render () {
-    let {sponsors} = this.props
-    sponsors = sponsors.map((s) => s.node)
-    return (
-      <div>
-        <Columns>
-          {sponsors.slice(0, 3).map((sponsor) => (
-            <Columns.Column>
-              <img className='bw' src={`/img/sponsors/${sponsor.frontmatter.image}`} alt={`${sponsor.frontmatter.name} logo`} />
-            </Columns.Column>
-          ))}
-        </Columns>
-        <Columns>
-          {sponsors.slice(3, 6).map((sponsor) => (
-            <Columns.Column>
-              <img className='bw' src={`/img/sponsors/${sponsor.frontmatter.image}`} alt={`${sponsor.frontmatter.name} logo`} />
-            </Columns.Column>
-          ))}
-        </Columns>
-        <style jsx>{`
-          .bw {
-            -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-            filter: grayscale(100%);
-            margin: 1rem;
-            max-height: 4rem;
-          }
-        `}</style>
-      </div>
     )
   }
 }

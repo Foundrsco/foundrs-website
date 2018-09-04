@@ -45,7 +45,7 @@ export default class Navigation extends React.Component {
             onClick={toggleMenu}
           />
         </Navbar.Brand>
-        <Navbar.Menu active={open}>
+        <Navbar.Menu active={open.toString()}>
           <Navbar.Container>
             
           </Navbar.Container>

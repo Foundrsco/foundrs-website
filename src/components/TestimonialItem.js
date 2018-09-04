@@ -17,7 +17,7 @@ export default class TestimonialItem extends React.Component {
         style={{maxWidth: '24rem', margin: 'auto'}}
       >
         <FadeUpWhenVisible>
-          <div class='quote is-size-4'>
+          <div className='quote is-size-4'>
             {testimonial.frontmatter.testimonial}
           </div>
         </FadeUpWhenVisible>
@@ -39,7 +39,7 @@ export default class TestimonialItem extends React.Component {
             </span>
           </p>
         </FadeUpWhenVisible>
-        <style jsx>{`
+        <style>{`
           .image {
             margin: auto;
             margin-bottom: 2rem;

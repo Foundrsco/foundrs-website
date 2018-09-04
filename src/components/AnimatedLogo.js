@@ -137,7 +137,7 @@ class AnimatedLogo extends React.Component {
       <Fragment>
         <FoundrsWord weight={weight} />
 
-        <style jsx>{`
+        <style>{`
 
           .foundrs-word {
             display: grid;

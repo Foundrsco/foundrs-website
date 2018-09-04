@@ -9,7 +9,7 @@ export default class TestimonialGrid extends React.Component {
       <div style={style || {marginTop: '4rem'}}>
         <Columns centered>
           {testimonials.map((item) => (
-            <Columns.Column>
+            <Columns.Column key={item.node.id}>
               <TestimonialItem
                 testimonial={item.node}
                 key={item.id} />
