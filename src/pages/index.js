@@ -169,14 +169,34 @@ export default class IndexPage extends React.Component {
                 </Heading>
                 <SponsorsGrid sponsors={sponsors} />
               </div>
+              <div style={{marginTop: '8rem', marginBottom: '8rem'}}>
+                <FadeUpWhenVisible>
+                  <div style={{maxWidth: '30rem', margin: 'auto'}}>
+                    <Card>
+                      <Card.Content>
+                        <Heading className='has-text-weight-light has-text-centered is-fullwidth'>
+                          <VisibleSplitText text='Would you like to join?' />
+                        </Heading>
+                        <div className='has-text-centered'>
+                          <Button renderAs={Link} to='/apply' className='is-large' color='black'>
+                            How to apply
+                          </Button>
+                        </div>
+                      </Card.Content>
+                    </Card>
+                  </div>
+                </FadeUpWhenVisible>
+              </div>
             </Container>
+
           </Hero.Body>
         </Hero>
 
-        <Section size='large' className='has-text-centered' style={{position: 'relative', marginTop: '-50vh'}}>
-          <SectionTriangle background='transparent' foreground='#0a0a0a' />
+        <Section size='large' className='has-text-centered' style={{position: 'relative'}} />
+
+        {false && <Section size='large' className='has-text-centered' style={{position: 'relative', marginTop: '-50vh'}}>
           <FadeUpWhenVisible>
-            <div style={{maxWidth: '30rem', margin: 'auto', marginTop: '-50vh'}}>
+            <div style={{maxWidth: '30rem', margin: 'auto', paddingTop: '50vh'}}>
               <Card>
                 <Card.Content>
                   <Heading className='has-text-weight-light has-text-centered is-fullwidth'>
@@ -200,7 +220,7 @@ export default class IndexPage extends React.Component {
             width={typeof (window) === 'undefined' ? 1000 : window.innerWidth}
             height={typeof (window) === 'undefined' ? 1000 : window.innerHeight * 1.5}
             style={{zIndex: -1, width: '100%', height: 'auto', position: 'absolute', top: 0, left: 0, right: 0}} />
-        </Section>
+        </Section>}
         <SiteFooter />
       </div>
     )

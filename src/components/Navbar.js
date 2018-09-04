@@ -53,9 +53,9 @@ export default class Navigation extends React.Component {
             <Navbar.Item renderAs="div">
               <Link className='has-text-weight-bold' onClick={deactivateMenu} to="/about">About</Link>
             </Navbar.Item>
-            <Navbar.Item renderAs="div">
+            {/*<Navbar.Item renderAs="div">
               <Link className='has-text-weight-bold' onClick={deactivateMenu} to="/values">Values</Link>
-            </Navbar.Item>
+            </Navbar.Item>*/}
             <Navbar.Item renderAs="div">
               <Button 
                 renderAs={Link} 

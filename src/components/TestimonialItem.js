@@ -17,7 +17,7 @@ export default class TestimonialItem extends React.Component {
       <article
         style={{maxWidth: '24rem', margin: 'auto'}}
       >
-        <FadeUpWhenVisible>
+        <FadeUpWhenVisible offset={200}>
           <div className='quote is-size-4'>
             {testimonial.frontmatter.testimonial}
           </div>
@@ -46,8 +46,8 @@ export default class TestimonialItem extends React.Component {
             margin: auto;
             margin-bottom: 2rem;
             margin-top: 2rem;
-            -webkit-clip-path: polygon(0% 13%, 50% 100%, 100% 13%);
-            clip-path: polygon(0% 13%, 50% 100%, 100% 13%);
+            
+            clip-path: circle(50%);
           }
           .quote:before {
             background-image: url(${quoteStart});

@@ -17,9 +17,9 @@ const Box = posed.div({
 
 export default class FadeUpWhenVisible extends React.Component {
   render () {
-    const {children} = this.props
+    const {children, offset} = this.props
     return (
-      <TrackVisibility>
+      <TrackVisibility offset={offset}>
         {({ isVisible }) => <Box pose={isVisible ? 'popped' : 'hidden'}>{children}</Box>}
       </TrackVisibility>
     )

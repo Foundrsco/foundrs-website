@@ -38,7 +38,7 @@ export default class TriangularMotif extends React.Component {
     const {style, stroke, weight} = this.props
     return (
       <div style={style}>
-        <TrackVisibility>
+        <TrackVisibility offset={150}>
           {({ isVisible }) =>
             <div>
               <Falling pose={isVisible ? 'active' : 'inactive'}>
