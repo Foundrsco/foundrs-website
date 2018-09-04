@@ -20,6 +20,7 @@ module.exports = {
         name: 'images'
       }
     },
+    `gatsby-plugin-styled-jsx`,
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
