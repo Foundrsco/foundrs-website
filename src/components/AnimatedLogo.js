@@ -1,6 +1,8 @@
 import React, {Fragment} from 'react'
 import {Parallax} from 'react-scroll-parallax'
 import Plx from 'react-plx'
+import posed from 'react-pose'
+import TrackVisibility from 'react-on-screen'
 
 const getRandomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min
@@ -67,6 +69,23 @@ class FoundrsWord extends React.Component {
   }
 }
 
+const Falling = posed.div({
+  rise: {
+    y: 0,
+    transition: { duration: 700 },
+    opacity: 1,
+    scale: 0.75,
+    ease: 'circOut'
+  },
+  fall: {
+    y: '200vh',
+    transition: { duration: 4000 },
+    opacity: 0,
+    scale: 0,
+    ease: 'circIn'
+  }
+})
+
 class Letter extends React.Component {
   render () {
     const { letter, weight, index } = this.props
@@ -90,15 +109,20 @@ class Letter extends React.Component {
       ]
     }
     ]
+
     return (
       <div className='letter'>
-        <Plx parallaxData={parallaxData}>
-          <svg viewBox={`0 0 ${378.82 + 8 * weight} ${512 + 8 * weight}`}>
-            <g transform={`translate(${weight * 4} ${weight * 4} )`} >
-              {letter.path}
-            </g>
-          </svg>
-        </Plx>
+        <TrackVisibility>
+          {({ isVisible }) =>
+            <Falling pose={isVisible ? 'rise' : 'fall'}>
+              <svg viewBox={`0 0 ${378.82 + 8 * weight} ${512 + 8 * weight}`}>
+                <g transform={`translate(${weight * 4} ${weight * 4} )`} >
+                  {letter.path}
+                </g>
+              </svg>
+            </Falling>
+          }
+        </TrackVisibility>
       </div>
     )
   }

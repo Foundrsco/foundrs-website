@@ -22,6 +22,7 @@ import Columns from 'react-bulma-components/lib/components/columns'
 import Chevrons from '../components/Chevrons'
 import SectionTriangle from '../components/SectionTriangle'
 import TestimonialGrid from '../components/TestimonialGrid'
+import TriangularMotif from '../components/TriangularMotif'
 
 class CommunitySection extends React.Component {
   render () {
@@ -41,19 +42,8 @@ class CommunitySection extends React.Component {
       <Hero id='community' size='fullheight' color='black'>
         <Hero.Body className='has-text-centered is-fullwidth'>
           <Container className='has-text-centered is-fullwidth'>
-            <div style={{maxWidth: '10rem', margin: 'auto', marginBottom: '8rem'}}>
-              <SectionTriangle
-                style={{margin: 'auto', marginTop: '-50vw'}}
-                foreground='transparent'
-                background='transparent'
-                stroke='#ffffff'
-                weight='6' />
-              <SectionTriangle
-                style={{margin: 'auto', marginTop: '-6rem'}}
-                foreground='transparent'
-                background='transparent'
-                stroke='#ffffff'
-                weight='6' />
+            <div style={{maxWidth: '10rem', margin: 'auto', marginTop: '-50vw', marginBottom: '8rem'}}>
+              <TriangularMotif stroke='#ffffff' weight='6' />
             </div>
             <Heading className='has-text-centered is-fullwidth'>
               <VisibleSplitText text='A community of the world’s best founders' />
@@ -160,19 +150,8 @@ export default class IndexPage extends React.Component {
         <Hero size='fullheight' color='white'>
           <Hero.Body className='has-text-centered is-fullwidth'>
             <Container className='has-text-centered'>
-              <div style={{maxWidth: '10rem', margin: 'auto', marginBottom: '8rem'}}>
-                <SectionTriangle
-                  style={{margin: 'auto', marginTop: '-50vw'}}
-                  foreground='transparent'
-                  background='transparent'
-                  stroke='#0a0a0a'
-                  weight='6' />
-                <SectionTriangle
-                  style={{margin: 'auto', marginTop: '-6rem'}}
-                  foreground='transparent'
-                  background='transparent'
-                  stroke='#0a0a0a'
-                  weight='6' />
+              <div style={{maxWidth: '10rem', margin: 'auto', marginTop: '-50vw', marginBottom: '8rem'}}>
+                <TriangularMotif stroke='#0a0a0a' weight='6' />
               </div>
               <Heading className='has-text-centered is-fullwidth has-text-weight-light'>
                 <VisibleSplitText text='Our Purpose' />
@@ -190,19 +169,8 @@ export default class IndexPage extends React.Component {
         <Hero size='fullheight' color='black'>
           <Hero.Body className='has-text-centered is-fullwidth'>
             <Container className='has-text-centered'>
-              <div style={{maxWidth: '10rem', margin: 'auto', marginBottom: '8rem'}}>
-                <SectionTriangle
-                  style={{margin: 'auto', marginTop: '-50vw'}}
-                  foreground='transparent'
-                  background='transparent'
-                  stroke='#ffffff'
-                  weight='6' />
-                <SectionTriangle
-                  style={{margin: 'auto', marginTop: '-6rem'}}
-                  foreground='transparent'
-                  background='transparent'
-                  stroke='#ffffff'
-                  weight='6' />
+              <div style={{maxWidth: '10rem', margin: 'auto', marginTop: '-50vw', marginBottom: '8rem'}}>
+                <TriangularMotif stroke='#ffffff' weight='6' />
               </div>
               <Heading className='has-text-weight-light has-text-centered is-fullwidth'>
                 <VisibleSplitText text='Our Mission' />
@@ -220,19 +188,8 @@ export default class IndexPage extends React.Component {
         <Hero size='fullheight' color='white'>
           <Hero.Body className='has-text-centered is-fullwidth'>
             <Container className='has-text-centered'>
-              <div style={{maxWidth: '10rem', margin: 'auto', marginBottom: '8rem'}}>
-                <SectionTriangle
-                  style={{margin: 'auto', marginTop: '-50vw'}}
-                  foreground='transparent'
-                  background='transparent'
-                  stroke='#0a0a0a'
-                  weight='6' />
-                <SectionTriangle
-                  style={{margin: 'auto', marginTop: '-6rem'}}
-                  foreground='transparent'
-                  background='transparent'
-                  stroke='#0a0a0a'
-                  weight='6' />
+              <div style={{maxWidth: '10rem', margin: 'auto', marginTop: '-50vw', marginBottom: '8rem'}}>
+                <TriangularMotif stroke='#0a0a0a' weight='6' />
               </div>
               <Heading className='has-text-centered is-fullwidth has-text-weight-light'>
                 <VisibleSplitText text='Our Vision' />
