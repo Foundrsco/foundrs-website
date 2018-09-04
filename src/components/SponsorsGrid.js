@@ -1,5 +1,6 @@
 import React from 'react'
 import Columns from 'react-bulma-components/lib/components/columns'
+import FadeUpWhenVisible from '../components/FadeUpWhenVisible'
 
 export default class SponsorsGrid extends React.Component {
   render () {
@@ -10,14 +11,18 @@ export default class SponsorsGrid extends React.Component {
         <Columns>
           {sponsors.slice(0, 3).map((sponsor) => (
             <Columns.Column key={sponsor.id}>
-              <img className='bw' src={`/img/sponsors/${sponsor.frontmatter.image}`} alt={`${sponsor.frontmatter.name} logo`} />
+              <FadeUpWhenVisible>
+                <img className='bw' src={`/img/sponsors/${sponsor.frontmatter.image}`} alt={`${sponsor.frontmatter.name} logo`} />
+              </FadeUpWhenVisible>
             </Columns.Column>
           ))}
         </Columns>
         <Columns>
           {sponsors.slice(3, 6).map((sponsor) => (
             <Columns.Column key={sponsor.id}>
-              <img className='bw' src={`/img/sponsors/${sponsor.frontmatter.image}`} alt={`${sponsor.frontmatter.name} logo`} />
+              <FadeUpWhenVisible>
+                <img className='bw' src={`/img/sponsors/${sponsor.frontmatter.image}`} alt={`${sponsor.frontmatter.name} logo`} />
+              </FadeUpWhenVisible>
             </Columns.Column>
           ))}
         </Columns>
