@@ -98,15 +98,13 @@ export default class IndexPage extends React.Component {
               <AnimatedLogo stroke='#0a0a0a' fill='none' weight='4' />
             </Hero.Body>
           </Hero>
-          <FadeInOnStart>
-            <Chevrons weight={4}
-              id='intro'
-              foreground='#0a0a0a'
-              background='#ffffff'
-              width={typeof (window) === 'undefined' ? 1000 : window.innerWidth}
-              height={typeof (window) === 'undefined' ? 1000 : window.innerHeight * 3.5}
-              style={{zIndex: -1, width: '100%', height: '350vh', position: 'absolute', top: 0, left: 0}} />
-          </FadeInOnStart>
+          <Chevrons weight={4}
+            id='intro'
+            foreground='#0a0a0a'
+            background='#ffffff'
+            width={typeof (window) === 'undefined' ? 1000 : window.innerWidth}
+            height={typeof (window) === 'undefined' ? 1000 : window.innerHeight * 3.5}
+            style={{opacity: 0.2, zIndex: -1, width: '100%', height: '350vh', position: 'absolute', top: 0, left: 0}} />
         </div>
 
         <SectionTriangle background='transparent' foreground='#0a0a0a' />
