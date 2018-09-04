@@ -19,14 +19,15 @@ export default class TestimonialItem extends React.Component {
       <div
         style={{maxWidth: '24rem', margin: 'auto'}}
       >
-        <div class='quote is-size-4'>
-          <VisibleSplitText text={testimonial.frontmatter.testimonial} />
-        </div>
+        <FadeUpWhenVisible>
+          <div class='quote is-size-4'>
+            {testimonial.frontmatter.testimonial}
+          </div>
+        </FadeUpWhenVisible>
         <FadeUpWhenVisible>
           <div>
             <Image
               size='128x128'
-              className='is-rounded'
               alt={`A photo of ${testimonial.frontmatter.name}`}
               src={`/img/${testimonial.frontmatter.image}`}
               style={clipped}

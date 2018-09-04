@@ -57,6 +57,39 @@ class CommunitySection extends React.Component {
   }
 }
 
+class SponsorsGrid extends React.Component {
+  render () {
+    let {sponsors} = this.props
+    sponsors = sponsors.map((s) => s.node)
+    return (
+      <div>
+        <Columns>
+          {sponsors.slice(0, 3).map((sponsor) => (
+            <Columns.Column>
+              <img className='bw' src={`/img/sponsors/${sponsor.frontmatter.image}`} alt={`${sponsor.frontmatter.name} logo`} />
+            </Columns.Column>
+          ))}
+        </Columns>
+        <Columns>
+          {sponsors.slice(3, 6).map((sponsor) => (
+            <Columns.Column>
+              <img className='bw' src={`/img/sponsors/${sponsor.frontmatter.image}`} alt={`${sponsor.frontmatter.name} logo`} />
+            </Columns.Column>
+          ))}
+        </Columns>
+        <style jsx>{`
+          .bw {
+            -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+            filter: grayscale(100%);
+            margin: 1rem;
+            max-height: 4rem;
+          }
+        `}</style>
+      </div>
+    )
+  }
+}
+
 const Fader = posed.div({
   starting: {
     transition: { duration: 500 },
@@ -196,24 +229,9 @@ export default class IndexPage extends React.Component {
               </Heading>
               <div style={{marginTop: '8rem'}}>
                 <Heading className='has-text-centered is-fullwidth is-4'>
-                  <VisibleSplitText text='With sponsorship from' />
+                  <VisibleSplitText text='Our sponsors' />
                 </Heading>
-                {false && sponsors && <Columns>
-                  <Columns.Column>
-                    {sponsors.split(0, 3).map((sponsor) => (
-                      <Columns.Column>
-                        <div>With sponsorship from</div>
-                      </Columns.Column>
-                    ))}
-                  </Columns.Column>
-                  <Columns.Column>
-                    {sponsors.split(3, 6).map((sponsor) => (
-                      <Columns.Column>
-                        <div>With sponsorship from</div>
-                      </Columns.Column>
-                    ))}
-                  </Columns.Column>
-                </Columns>}
+                <SponsorsGrid sponsors={sponsors} />
               </div>
             </Container>
           </Hero.Body>
