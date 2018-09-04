@@ -163,7 +163,7 @@ export default class IndexPage extends React.Component {
               <Heading className='has-text-centered is-fullwidth'>
                 <VisibleSplitText text='The world’s best companies are run by the standards that our Foundrs set' />
               </Heading>
-              <div style={{marginTop: '8rem'}}>
+              <div style={{marginTop: '8rem', marginBottom: '8rem'}}>
                 <Heading className='has-text-centered is-fullwidth is-4'>
                   <VisibleSplitText text='Our sponsors' />
                 </Heading>
