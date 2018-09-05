@@ -24,12 +24,10 @@ export default class TestimonialItem extends React.Component {
         </FadeUpWhenVisible>
         <FadeUpWhenVisible>
           <figure className='image is-128x128'>
-            <img
-              imgixSubdomain='foundrs'
-              path={testimonial.frontmatter.image}
+            <LazyImage
+              src={`https://foundrs.imgix.net/${testimonial.frontmatter.image}?w=256&h=256&fit=crop`} />
               width={256}
               height={256}
-              imgixOptions={{fit: 'crop', w: 256, h: 256}}
               alt={`A photo of ${testimonial.frontmatter.name}`}
             />
           </figure>
