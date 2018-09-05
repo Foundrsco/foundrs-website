@@ -13,7 +13,7 @@ const TemplateWrapper = ({ children }) => (
     <Helmet title='Foundrs' description='A community of the best company founders' />
     <Typekit kitId='eiw6zwb' />
     <Navbar />
-    <div>{children()}</div>
+    <div>{children}</div>
     <div style={{display: 'none'}}>
       <svg className='clip-svg'>
         <defs>
