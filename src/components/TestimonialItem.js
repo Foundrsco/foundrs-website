@@ -7,7 +7,7 @@ import FadeUpWhenVisible from './FadeUpWhenVisible'
 import quoteStart from '../img/quote-marks-start.svg'
 import quoteEnd from '../img/quote-marks-end.svg'
 import Imgix from 'react-imgix'
-import LazyLoadingImgixImage from './LazyLoadingImgixImage'
+import LazyImage from './LazyImage'
 
 export default class TestimonialItem extends React.Component {
   render () {
@@ -24,7 +24,7 @@ export default class TestimonialItem extends React.Component {
         </FadeUpWhenVisible>
         <FadeUpWhenVisible>
           <figure className='image is-128x128'>
-            <LazyLoadingImgixImage
+            <img
               imgixSubdomain='foundrs'
               path={testimonial.frontmatter.image}
               width={256}

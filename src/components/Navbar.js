@@ -2,7 +2,7 @@ import Link from 'gatsby-link'
 
 import logo from '../img/foundrs-white-f-on-black.svg'
 
-import React, { Fragment } from 'react'
+import React from 'react'
 import Navbar from 'react-bulma-components/lib/components/navbar';
 import Button from 'react-bulma-components/lib/components/button'
 

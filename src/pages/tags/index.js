@@ -1,21 +1,22 @@
 import React from 'react'
-import { kebabCase } from 'lodash'
+import kebabCase from 'lodash.kebabcase'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
+import { graphql } from 'gatsby'
 
 const TagsPage = ({
-  data: { allMarkdownRemark: { group }, site: { siteMetadata: { title } } },
+  data: { allMarkdownRemark: { group }, site: { siteMetadata: { title } } }
 }) => (
-  <section className="section">
+  <section className='section'>
     <Helmet title={`Tags | ${title}`} />
-    <div className="container content">
-      <div className="columns">
+    <div className='container content'>
+      <div className='columns'>
         <div
-          className="column is-10 is-offset-1"
+          className='column is-10 is-offset-1'
           style={{ marginBottom: '6rem' }}
         >
-          <h1 className="title is-size-2 is-bold-light">Tags</h1>
-          <ul className="taglist">
+          <h1 className='title is-size-2 is-bold-light'>Tags</h1>
+          <ul className='taglist'>
             {group.map(tag => (
               <li key={tag.fieldValue}>
                 <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>

@@ -84,13 +84,12 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   }
 }
 
-exports.modifyWebpackConfig = ({config, env}) => {
-  config.merge({
+exports.onCreateWebpackConfig = ({actions}) => {
+  actions.setWebpackConfig({
     resolve: {
       alias: {
         '_variables.sass': path.resolve(__dirname, 'src/style/_variables.sass')
       }
     }
   })
-  return config
 }

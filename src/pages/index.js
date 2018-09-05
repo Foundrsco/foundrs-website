@@ -9,36 +9,22 @@ import Hero from 'react-bulma-components/lib/components/hero'
 import Container from 'react-bulma-components/lib/components/container'
 import Content from 'react-bulma-components/lib/components/content'
 import Heading from 'react-bulma-components/lib/components/heading'
-import Box from 'react-bulma-components/lib/components/box'
 import Card from 'react-bulma-components/lib/components/card'
-import Plx from 'react-plx'
-import SplitText from 'react-pose-text'
 import TrackVisibility from 'react-on-screen'
 import posed from 'react-pose'
 import SiteFooter from '../components/SiteFooter'
 import VisibleSplitText from '../components/VisibleSplitText'
-import TestimonialItem from '../components/TestimonialItem'
-import Columns from 'react-bulma-components/lib/components/columns'
 import Chevrons from '../components/Chevrons'
 import SectionTriangle from '../components/SectionTriangle'
 import TestimonialGrid from '../components/TestimonialGrid'
 import TriangularMotif from '../components/TriangularMotif'
 import SponsorsGrid from '../components/SponsorsGrid'
 import Layout from '../components/layout'
+import FadeInOnStart from '../components/FadeInOnStart'
+import { graphql } from 'gatsby'
 
 class CommunitySection extends React.Component {
   render () {
-    const parallaxData = [{
-      start: 'self',
-      end: 100,
-      properties: [
-        {
-          startValue: 0,
-          endValue: 90,
-          property: 'rotate'
-        }
-      ]
-    }]
     const {testimonials} = this.props
     return (
       <Hero id='community' size='fullheight' color='black'>
@@ -58,28 +44,6 @@ class CommunitySection extends React.Component {
           </Container>
         </Hero.Body>
       </Hero>
-    )
-  }
-}
-
-const Fader = posed.div({
-  starting: {
-    transition: { duration: 500 },
-    opacity: 0.1
-  },
-  scrolling: {
-    transition: { duration: 500 },
-    opacity: 1
-  }
-})
-
-class FadeInOnStart extends React.Component {
-  render () {
-    const {children} = this.props
-    return (
-      <TrackVisibility offset={-100}>
-        {({ isVisible }) => <Fader pose={isVisible ? 'scrolling' : 'starting'}>{children}</Fader>}
-      </TrackVisibility>
     )
   }
 }

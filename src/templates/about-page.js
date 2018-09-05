@@ -6,18 +6,19 @@ import Container from 'react-bulma-components/lib/components/container'
 import Section from 'react-bulma-components/lib/components/section'
 import Heading from 'react-bulma-components/lib/components/heading'
 import Hero from 'react-bulma-components/lib/components/hero'
-import PageTransition from 'gatsby-plugin-page-transitions'
+// import PageTransition from 'gatsby-plugin-page-transitions'
 import triangle from '../img/foundrs-black-triangle.svg'
 import FadeUpWhenVisible from '../components/FadeUpWhenVisible'
 import SiteFooter from '../components/SiteFooter'
 import Layout from '../components/layout'
+import { graphql } from 'gatsby'
 
 export const AboutPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || ContentDisplay
 
   return (
     <Layout>
-      <PageTransition
+      {/* <PageTransition
         defaultStyle={{
           transition: 'opacity 200ms cubic-bezier(0.47, 0, 0.75, 0.72)',
           opacity: 0,
@@ -30,33 +31,33 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
           exiting: { opacity: 0 }
         }}
         transitionTime={200}
-      >
-        <Section>
-          <Container>
-            <Content>
-              <Hero size='large'>
-                <Hero.Body className='has-text-centered is-fullwidth'>
-                  <FadeUpWhenVisible>
-                    <Heading className='has-text-centered is-fullwidth'>{title}</Heading>
-                  </FadeUpWhenVisible>
-                </Hero.Body>
-              </Hero>
+      > */}
+      <Section>
+        <Container>
+          <Content>
+            <Hero size='large'>
+              <Hero.Body className='has-text-centered is-fullwidth'>
+                <FadeUpWhenVisible>
+                  <Heading className='has-text-centered is-fullwidth'>{title}</Heading>
+                </FadeUpWhenVisible>
+              </Hero.Body>
+            </Hero>
 
+            <div>
               <div>
-                <div>
-                  <img alt='Title' src={triangle} style={{height: '3.25rem'}} />
-                </div>
-                <div style={{maxWidth: '40em', margin: 'auto'}}>
-                  <PageContent className='content' content={content} />
-                </div>
+                <img alt='Title' src={triangle} style={{height: '3.25rem'}} />
               </div>
-            </Content>
-          </Container>
-        </Section>
-        <Section />
-        <SiteFooter />
-      </PageTransition>
-    </Layout>
+              <div style={{maxWidth: '40em', margin: 'auto'}}>
+                <PageContent className='content' content={content} />
+              </div>
+            </div>
+          </Content>
+        </Container>
+      </Section>
+      <Section />
+      <SiteFooter />
+      {/*      </PageTransition>
+*/}    </Layout>
   )
 }
 

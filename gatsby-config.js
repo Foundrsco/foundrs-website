@@ -91,7 +91,7 @@ module.exports = {
     //     }
     //   }
     // },
-    'gatsby-plugin-page-transitions',
+    // 'gatsby-plugin-page-transitions',
     'gatsby-plugin-netlify' // make sure to keep it last in the array
   ]
 }
