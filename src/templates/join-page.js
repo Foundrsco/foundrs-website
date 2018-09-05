@@ -9,6 +9,7 @@ import Hero from 'react-bulma-components/lib/components/hero'
 import PageTransition from 'gatsby-plugin-page-transitions'
 import triangle from '../img/foundrs-black-triangle.svg'
 import FadeUpWhenVisible from '../components/FadeUpWhenVisible'
+import Layout from '../components/layout'
 
 export const JoinPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || ContentDisplay
@@ -17,52 +18,54 @@ export const JoinPageTemplate = ({ title, content, contentComponent }) => {
     formHeight = window.innerHeight - 80
   }
   return (
-    <PageTransition
-      defaultStyle={{
-        transition: 'opacity 200ms cubic-bezier(0.47, 0, 0.75, 0.72)',
-        opacity: 0,
-        position: 'absolute',
-        width: '100%'
-      }}
-      transitionStyles={{
-        entering: { opacity: 0 },
-        entered: { opacity: 1 },
-        exiting: { opacity: 0 }
-      }}
-      transitionTime={200}
-    >
-      <Section style={{borderBottom: '1px solid #222'}}>
-        <Container>
-          <Content>
-            <Hero size='large'>
-              <Hero.Body className='has-text-centered is-fullwidth'>
-                <FadeUpWhenVisible>
-                  <Heading className='has-text-centered is-fullwidth'>{title}</Heading>
-                </FadeUpWhenVisible>
-              </Hero.Body>
-            </Hero>
-            <div>
+    <Layout>
+      <PageTransition
+        defaultStyle={{
+          transition: 'opacity 200ms cubic-bezier(0.47, 0, 0.75, 0.72)',
+          opacity: 0,
+          position: 'absolute',
+          width: '100%'
+        }}
+        transitionStyles={{
+          entering: { opacity: 0 },
+          entered: { opacity: 1 },
+          exiting: { opacity: 0 }
+        }}
+        transitionTime={200}
+      >
+        <Section style={{borderBottom: '1px solid #222'}}>
+          <Container>
+            <Content>
+              <Hero size='large'>
+                <Hero.Body className='has-text-centered is-fullwidth'>
+                  <FadeUpWhenVisible>
+                    <Heading className='has-text-centered is-fullwidth'>{title}</Heading>
+                  </FadeUpWhenVisible>
+                </Hero.Body>
+              </Hero>
               <div>
-                <img alt='Title' src={triangle} style={{height: '3.25rem'}} />
+                <div>
+                  <img alt='Title' src={triangle} style={{height: '3.25rem'}} />
+                </div>
+                <div style={{maxWidth: '40em', margin: 'auto'}}>
+                  <PageContent className='content' content={content} />
+                </div>
               </div>
-              <div style={{maxWidth: '40em', margin: 'auto'}}>
-                <PageContent className='content' content={content} />
-              </div>
-            </div>
 
-          </Content>
-        </Container>
-      </Section>
+            </Content>
+          </Container>
+        </Section>
 
-      <iframe
-        class='airtable-embed'
-        src='https://airtable.com/embed/shr8vC92ceFTAATb5?backgroundColor=orange'
-        frameBorder='0'
-        width='100%'
-        height={formHeight}
-        style={{background: 'transparent', border: '1px solid #ccc;'}} />
+        <iframe
+          class='airtable-embed'
+          src='https://airtable.com/embed/shr8vC92ceFTAATb5?backgroundColor=orange'
+          frameBorder='0'
+          width='100%'
+          height={formHeight}
+          style={{background: 'transparent', border: '1px solid #ccc;'}} />
 
-    </PageTransition>
+      </PageTransition>
+    </Layout>
   )
 }
 

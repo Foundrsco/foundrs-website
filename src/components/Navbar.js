@@ -43,6 +43,7 @@ export default class Navigation extends React.Component {
           <Navbar.Burger
             active={open.toString()}
             onClick={toggleMenu}
+            ariaLabel="Menu"
           />
         </Navbar.Brand>
         <Navbar.Menu active={open.toString()}>

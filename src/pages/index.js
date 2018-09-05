@@ -24,6 +24,7 @@ import SectionTriangle from '../components/SectionTriangle'
 import TestimonialGrid from '../components/TestimonialGrid'
 import TriangularMotif from '../components/TriangularMotif'
 import SponsorsGrid from '../components/SponsorsGrid'
+import Layout from '../components/layout'
 
 class CommunitySection extends React.Component {
   render () {
@@ -91,138 +92,140 @@ export default class IndexPage extends React.Component {
     console.log({sponsors})
 
     return (
-      <div style={{perspective: '1px', transformStyle: 'preserve-3d'}}>
-        <div style={{position: 'relative'}}>
-          <Hero size='fullheight'>
-            <Hero.Body>
-              <AnimatedLogo stroke='#0a0a0a' fill='none' weight='4' />
+      <Layout>
+        <div style={{perspective: '1px', transformStyle: 'preserve-3d'}}>
+          <div style={{position: 'relative'}}>
+            <Hero size='fullheight'>
+              <Hero.Body>
+                <AnimatedLogo stroke='#0a0a0a' fill='none' weight='4' />
+              </Hero.Body>
+            </Hero>
+            <Chevrons weight={4}
+              id='intro'
+              foreground='#0a0a0a'
+              background='#ffffff'
+              width={typeof (window) === 'undefined' ? 1000 : window.innerWidth}
+              height={typeof (window) === 'undefined' ? 1000 : window.innerHeight * 3.5}
+              style={{opacity: 0.2, zIndex: -1, width: '100%', height: '350vh', position: 'absolute', top: 0, left: 0}} />
+          </div>
+
+          <SectionTriangle background='transparent' foreground='#0a0a0a' />
+
+          <CommunitySection testimonials={testimonials.slice(0, 2)} />
+
+          <SectionTriangle background='#0a0a0a' foreground='#ffffff' />
+
+          <Hero size='fullheight' color='white'>
+            <Hero.Body className='has-text-centered is-fullwidth'>
+              <Container className='has-text-centered'>
+                <div style={{maxWidth: '10rem', margin: 'auto', marginTop: '-50vw', marginBottom: '8rem'}}>
+                  <TriangularMotif stroke='#0a0a0a' weight='6' />
+                </div>
+                <Heading className='has-text-centered is-fullwidth has-text-weight-light'>
+                  <VisibleSplitText text='Our Purpose' />
+                </Heading>
+                <Heading className='has-text-centered is-fullwidth'>
+                  <VisibleSplitText text='We exist to enable Foundrs to give more, know more and be more' />
+                </Heading>
+                <TestimonialGrid testimonials={testimonials.slice(2, 4)} />
+              </Container>
             </Hero.Body>
           </Hero>
-          <Chevrons weight={4}
-            id='intro'
-            foreground='#0a0a0a'
-            background='#ffffff'
-            width={typeof (window) === 'undefined' ? 1000 : window.innerWidth}
-            height={typeof (window) === 'undefined' ? 1000 : window.innerHeight * 3.5}
-            style={{opacity: 0.2, zIndex: -1, width: '100%', height: '350vh', position: 'absolute', top: 0, left: 0}} />
-        </div>
 
-        <SectionTriangle background='transparent' foreground='#0a0a0a' />
+          <SectionTriangle background='#ffffff' foreground='#0a0a0a' />
 
-        <CommunitySection testimonials={testimonials.slice(0, 2)} />
-
-        <SectionTriangle background='#0a0a0a' foreground='#ffffff' />
-
-        <Hero size='fullheight' color='white'>
-          <Hero.Body className='has-text-centered is-fullwidth'>
-            <Container className='has-text-centered'>
-              <div style={{maxWidth: '10rem', margin: 'auto', marginTop: '-50vw', marginBottom: '8rem'}}>
-                <TriangularMotif stroke='#0a0a0a' weight='6' />
-              </div>
-              <Heading className='has-text-centered is-fullwidth has-text-weight-light'>
-                <VisibleSplitText text='Our Purpose' />
-              </Heading>
-              <Heading className='has-text-centered is-fullwidth'>
-                <VisibleSplitText text='We exist to enable Foundrs to give more, know more and be more' />
-              </Heading>
-              <TestimonialGrid testimonials={testimonials.slice(2, 4)} />
-            </Container>
-          </Hero.Body>
-        </Hero>
-
-        <SectionTriangle background='#ffffff' foreground='#0a0a0a' />
-
-        <Hero size='fullheight' color='black'>
-          <Hero.Body className='has-text-centered is-fullwidth'>
-            <Container className='has-text-centered'>
-              <div style={{maxWidth: '10rem', margin: 'auto', marginTop: '-50vw', marginBottom: '8rem'}}>
-                <TriangularMotif stroke='#ffffff' weight='6' />
-              </div>
-              <Heading className='has-text-weight-light has-text-centered is-fullwidth'>
-                <VisibleSplitText text='Our Mission' />
-              </Heading>
-              <Heading className='has-text-centered is-fullwidth'>
-                <VisibleSplitText text='To establish an active Foundrs community in 100 major cities globally' />
-              </Heading>
-              <TestimonialGrid testimonials={testimonials.slice(4, 6)} />
-            </Container>
-          </Hero.Body>
-        </Hero>
-
-        <SectionTriangle background='#0a0a0a' foreground='#ffffff' />
-
-        <Hero size='fullheight' color='white'>
-          <Hero.Body className='has-text-centered is-fullwidth'>
-            <Container className='has-text-centered'>
-              <div style={{maxWidth: '10rem', margin: 'auto', marginTop: '-50vw', marginBottom: '8rem'}}>
-                <TriangularMotif stroke='#0a0a0a' weight='6' />
-              </div>
-              <Heading className='has-text-centered is-fullwidth has-text-weight-light'>
-                <VisibleSplitText text='Our Vision' />
-              </Heading>
-              <Heading className='has-text-centered is-fullwidth'>
-                <VisibleSplitText text='The world’s best companies are run by the standards that our Foundrs set' />
-              </Heading>
-              <div style={{marginTop: '8rem', marginBottom: '8rem'}}>
-                <Heading className='has-text-centered is-fullwidth is-4'>
-                  <VisibleSplitText text='Our sponsors' />
+          <Hero size='fullheight' color='black'>
+            <Hero.Body className='has-text-centered is-fullwidth'>
+              <Container className='has-text-centered'>
+                <div style={{maxWidth: '10rem', margin: 'auto', marginTop: '-50vw', marginBottom: '8rem'}}>
+                  <TriangularMotif stroke='#ffffff' weight='6' />
+                </div>
+                <Heading className='has-text-weight-light has-text-centered is-fullwidth'>
+                  <VisibleSplitText text='Our Mission' />
                 </Heading>
-                <SponsorsGrid sponsors={sponsors} />
-              </div>
-              <div style={{marginTop: '8rem', marginBottom: '8rem'}}>
-                <FadeUpWhenVisible>
-                  <div style={{maxWidth: '30rem', margin: 'auto'}}>
-                    <Card>
-                      <Card.Content>
-                        <Heading className='has-text-weight-light has-text-centered is-fullwidth'>
-                          <VisibleSplitText text='Would you like to join?' />
-                        </Heading>
-                        <div className='has-text-centered'>
-                          <Button renderAs={Link} to='/apply' className='is-large' color='black'>
-                            How to apply
-                          </Button>
-                        </div>
-                      </Card.Content>
-                    </Card>
-                  </div>
-                </FadeUpWhenVisible>
-              </div>
-            </Container>
+                <Heading className='has-text-centered is-fullwidth'>
+                  <VisibleSplitText text='To establish an active Foundrs community in 100 major cities globally' />
+                </Heading>
+                <TestimonialGrid testimonials={testimonials.slice(4, 6)} />
+              </Container>
+            </Hero.Body>
+          </Hero>
 
-          </Hero.Body>
-        </Hero>
+          <SectionTriangle background='#0a0a0a' foreground='#ffffff' />
 
-        <Section size='large' className='has-text-centered' style={{position: 'relative'}} />
-
-        {false && <Section size='large' className='has-text-centered' style={{position: 'relative', marginTop: '-50vh'}}>
-          <FadeUpWhenVisible>
-            <div style={{maxWidth: '30rem', margin: 'auto', paddingTop: '50vh'}}>
-              <Card>
-                <Card.Content>
-                  <Heading className='has-text-weight-light has-text-centered is-fullwidth'>
-                    <VisibleSplitText text='Would you like to join?' />
+          <Hero size='fullheight' color='white'>
+            <Hero.Body className='has-text-centered is-fullwidth'>
+              <Container className='has-text-centered'>
+                <div style={{maxWidth: '10rem', margin: 'auto', marginTop: '-50vw', marginBottom: '8rem'}}>
+                  <TriangularMotif stroke='#0a0a0a' weight='6' />
+                </div>
+                <Heading className='has-text-centered is-fullwidth has-text-weight-light'>
+                  <VisibleSplitText text='Our Vision' />
+                </Heading>
+                <Heading className='has-text-centered is-fullwidth'>
+                  <VisibleSplitText text='The world’s best companies are run by the standards that our Foundrs set' />
+                </Heading>
+                <div style={{marginTop: '8rem', marginBottom: '8rem'}}>
+                  <Heading className='has-text-centered is-fullwidth is-4'>
+                    <VisibleSplitText text='Our sponsors' />
                   </Heading>
-                  <div className='has-text-centered'>
-                    <Button renderAs={Link} to='/apply' className='is-large' color='black'>
+                  <SponsorsGrid sponsors={sponsors} />
+                </div>
+                <div style={{marginTop: '8rem', marginBottom: '8rem'}}>
+                  <FadeUpWhenVisible>
+                    <div style={{maxWidth: '30rem', margin: 'auto'}}>
+                      <Card>
+                        <Card.Content>
+                          <Heading className='has-text-weight-light has-text-centered is-fullwidth'>
+                            <VisibleSplitText text='Would you like to join?' />
+                          </Heading>
+                          <div className='has-text-centered'>
+                            <Button renderAs={Link} to='/apply' className='is-large' color='black'>
+                            How to apply
+                            </Button>
+                          </div>
+                        </Card.Content>
+                      </Card>
+                    </div>
+                  </FadeUpWhenVisible>
+                </div>
+              </Container>
+
+            </Hero.Body>
+          </Hero>
+
+          <Section size='large' className='has-text-centered' style={{position: 'relative'}} />
+
+          {false && <Section size='large' className='has-text-centered' style={{position: 'relative', marginTop: '-50vh'}}>
+            <FadeUpWhenVisible>
+              <div style={{maxWidth: '30rem', margin: 'auto', paddingTop: '50vh'}}>
+                <Card>
+                  <Card.Content>
+                    <Heading className='has-text-weight-light has-text-centered is-fullwidth'>
+                      <VisibleSplitText text='Would you like to join?' />
+                    </Heading>
+                    <div className='has-text-centered'>
+                      <Button renderAs={Link} to='/apply' className='is-large' color='black'>
                       How to apply
-                    </Button>
-                  </div>
-                </Card.Content>
-              </Card>
-            </div>
-          </FadeUpWhenVisible>
-          <Chevrons
-            rotation={180}
-            weight={4}
-            id='intro'
-            foreground='#0a0a0a'
-            background='#ffffff'
-            width={typeof (window) === 'undefined' ? 1000 : window.innerWidth}
-            height={typeof (window) === 'undefined' ? 1000 : window.innerHeight * 1.5}
-            style={{zIndex: -1, width: '100%', height: 'auto', position: 'absolute', top: 0, left: 0, right: 0}} />
-        </Section>}
-        <SiteFooter />
-      </div>
+                      </Button>
+                    </div>
+                  </Card.Content>
+                </Card>
+              </div>
+            </FadeUpWhenVisible>
+            <Chevrons
+              rotation={180}
+              weight={4}
+              id='intro'
+              foreground='#0a0a0a'
+              background='#ffffff'
+              width={typeof (window) === 'undefined' ? 1000 : window.innerWidth}
+              height={typeof (window) === 'undefined' ? 1000 : window.innerHeight * 1.5}
+              style={{zIndex: -1, width: '100%', height: 'auto', position: 'absolute', top: 0, left: 0, right: 0}} />
+          </Section>}
+          <SiteFooter />
+        </div>
+      </Layout>
     )
   }
 }

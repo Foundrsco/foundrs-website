@@ -6,11 +6,11 @@ import Navbar from '../components/Navbar'
 import Hero from 'react-bulma-components/lib/components/hero'
 import Typekit from 'react-typekit'
 
-import './all.sass'
+import '../layouts/all.sass'
 
 const TemplateWrapper = ({ children }) => (
   <div>
-    <Helmet title='Foundrs' />
+    <Helmet title='Foundrs' description='A community of the best company founders' />
     <Typekit kitId='eiw6zwb' />
     <Navbar />
     <div>{children()}</div>
