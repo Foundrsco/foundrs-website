@@ -51,7 +51,7 @@ module.exports = {
       options: {
         name: `Foundrs`,
         short_name: `Foundrs`,
-        start_url: `/?homescreen=1`,
+        start_url: `https://foundrs.co/?homescreen=1`,
         background_color: `#0a0a0a`,
         theme_color: `#ffffff`,
         display: `minimal-ui`,

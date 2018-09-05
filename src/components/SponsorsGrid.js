@@ -2,18 +2,7 @@ import React from 'react'
 import Columns from 'react-bulma-components/lib/components/columns'
 import FadeUpWhenVisible from '../components/FadeUpWhenVisible'
 import TrackVisibility from 'react-on-screen'
-
-class LazyImage extends React.Component {
-  render () {
-    const {alt, src, className, style} = this.props
-    const invisible = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
-    return (
-      <TrackVisibility once>
-        {({ isVisible }) => <img src={isVisible ? src : invisible} alt={alt} style={style} className={className} />}
-      </TrackVisibility>
-    )
-  }
-}
+import LazyImage from './LazyImage'
 
 export default class SponsorsGrid extends React.Component {
   render () {
@@ -32,6 +21,15 @@ export default class SponsorsGrid extends React.Component {
         </Columns>
         <Columns>
           {sponsors.slice(3, 6).map((sponsor) => (
+            <Columns.Column key={sponsor.id}>
+              <FadeUpWhenVisible>
+                <LazyImage className='bw' src={`/img/sponsors/${sponsor.frontmatter.image}`} alt={`${sponsor.frontmatter.name} logo`} />
+              </FadeUpWhenVisible>
+            </Columns.Column>
+          ))}
+        </Columns>
+        <Columns>
+          {sponsors.slice(6, 9).map((sponsor) => (
             <Columns.Column key={sponsor.id}>
               <FadeUpWhenVisible>
                 <LazyImage className='bw' src={`/img/sponsors/${sponsor.frontmatter.image}`} alt={`${sponsor.frontmatter.name} logo`} />

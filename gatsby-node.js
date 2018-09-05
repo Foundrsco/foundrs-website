@@ -85,6 +85,12 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
 }
 
 exports.onCreateWebpackConfig = ({actions}) => {
+  if (stage === 'build-javascript') {
+    // turn off source-maps
+    actions.setWebpackConfig({
+      devtool: false
+    })
+  }
   actions.setWebpackConfig({
     resolve: {
       alias: {
