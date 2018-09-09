@@ -13,19 +13,24 @@ export default class VisibleSplitText extends React.Component {
       },
       exit: {
         opacity: 0,
-        y: -10,
+        y: 32,
         delay: ({ charIndex }) => charIndex * 2
       }
     }
     return (
       <TrackVisibility>
-        {({ isVisible }) => <SplitText
-          visible={isVisible}
-          initialPose='exit'
-          pose={isVisible ? 'enter' : 'exit'}
-          charPoses={charPoses}>
-          {text}
-        </SplitText>}
+        {({ isVisible }) =>
+          <span className={`variable-text-in ${isVisible ? 'enter' : 'exit'}`}>
+            <SplitText
+              visible={isVisible}
+              initialPose='exit'
+              pose={isVisible ? 'enter' : 'exit'}
+              charPoses={charPoses}
+            >
+              {text}
+            </SplitText>
+          </span>
+        }
       </TrackVisibility>
     )
   }

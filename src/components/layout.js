@@ -1,17 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-// import { ParallaxProvider } from 'react-scroll-parallax'
 import Navbar from '../components/Navbar'
-import Hero from 'react-bulma-components/lib/components/hero'
-import Typekit from 'react-typekit'
 
 import '../layouts/all.sass'
 
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet title='Foundrs' description='A community of the best company founders' />
-    <Typekit kitId='eiw6zwb' />
     <Navbar />
     <div>{children}</div>
     <div style={{display: 'none'}}>

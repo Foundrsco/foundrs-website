@@ -13,6 +13,7 @@
     "gatsby-plugin-netlify": "^2.0.0-rc.2",
     "gatsby-plugin-netlify-cms": "^3.0.0-rc.1",
     "gatsby-plugin-offline": "^2.0.0-rc.3",
+    "gatsby-plugin-page-load-delay": "^0.1.2",
     "gatsby-plugin-page-transitions": "^1.0.7",
     "gatsby-plugin-react-helmet": "^3.0.0-rc.1",
     "gatsby-plugin-sass": "^2.0.0-rc.2",

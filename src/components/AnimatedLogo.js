@@ -1,6 +1,4 @@
 import React, {Fragment} from 'react'
-import {Parallax} from 'react-scroll-parallax'
-import Plx from 'react-plx'
 import posed from 'react-pose'
 import TrackVisibility from 'react-on-screen'
 

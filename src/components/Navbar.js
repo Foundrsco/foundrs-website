@@ -1,6 +1,6 @@
 import Link from 'gatsby-link'
 
-import logo from '../img/foundrs-white-f-on-black.svg'
+import logo from '../img/logo.svg'
 
 import React from 'react'
 import Navbar from 'react-bulma-components/lib/components/navbar';
@@ -34,7 +34,7 @@ export default class Navigation extends React.Component {
     return (
       <Navbar
         fixed='top'
-        transparent
+        color={'black'}
         active={open}
       >
         <Navbar.Brand>
@@ -52,7 +52,7 @@ export default class Navigation extends React.Component {
           </Navbar.Container>
           <Navbar.Container position="end">
             <Navbar.Item renderAs="div">
-              <Link className='has-text-weight-bold' onClick={deactivateMenu} to="/about">About</Link>
+              <Link className='has-text-weight-bold has-text-light' onClick={deactivateMenu} to="/about">About</Link>
             </Navbar.Item>
             {/*<Navbar.Item renderAs="div">
               <Link className='has-text-weight-bold' onClick={deactivateMenu} to="/values">Values</Link>
@@ -62,8 +62,8 @@ export default class Navigation extends React.Component {
                 renderAs={Link} 
                 onClick={deactivateMenu} 
                 to="/apply" 
-                className='has-text-weight-bold' 
-                color='black'>Apply</Button>
+                className='has-hover-weight' 
+                color='white' outlined={true}>Apply to join</Button>
             </Navbar.Item>
           </Navbar.Container>
         </Navbar.Menu>
