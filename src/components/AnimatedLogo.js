@@ -60,7 +60,7 @@ class FoundrsWord extends React.Component {
             index={i + 1}
             letter={WordLetter}
             weight={weight}
-            style={{width: '100%'}} />
+          />
         )}
       </div>
     )
@@ -132,7 +132,7 @@ class AnimatedLogo extends React.Component {
     const oneSeventh = 14.2857142857
     const letterStyle = {width: `${oneSeventh}%`}
     return (
-      <Fragment>
+      <div style={{width: '100%'}}>
         <FoundrsWord weight={weight} />
 
         <style>{`
@@ -192,7 +192,7 @@ class AnimatedLogo extends React.Component {
             }
           }
         `}</style>
-      </Fragment>
+      </div>
     )
   }
 }

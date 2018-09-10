@@ -22,6 +22,7 @@ import SponsorsGrid from '../components/SponsorsGrid'
 import Layout from '../components/layout'
 import FadeInOnStart from '../components/FadeInOnStart'
 import { graphql } from 'gatsby'
+import triangularLogo from '../img/foundrs-white-f-on-black.svg'
 
 class CommunitySection extends React.Component {
   render () {
@@ -30,6 +31,9 @@ class CommunitySection extends React.Component {
       <Hero id='community' size='fullheight' color='black'>
         <Hero.Body className='has-text-centered is-fullwidth'>
           <Container className='has-text-centered is-fullwidth'>
+            <FadeUpWhenVisible>
+              <img src={triangularLogo} alt='Founders icon' width={128} height={128} />
+            </FadeUpWhenVisible>
             <Heading size={1} className='has-text-centered is-fullwidth'>
               <VisibleSplitText text='A community of the world’s best founders' />
             </Heading>
@@ -40,9 +44,9 @@ class CommunitySection extends React.Component {
                 <Button
                   renderAs={Link}
                   to='/apply'
-                  size={1}
-                  className='has-hover-weight'
-                  color='white'>Apply to join</Button>
+                  className='has-hover-weight is-large'
+                  color='white'
+                  outlined>Apply to join</Button>
               </p>
             </Content>
 
@@ -55,8 +59,7 @@ class CommunitySection extends React.Component {
 
 export default class IndexPage extends React.Component {
   componentDidMount () {
-    // Set delay in milliseconds
-    window.pageExitTime = 1000
+
   }
 
   render () {
@@ -152,7 +155,7 @@ export default class IndexPage extends React.Component {
             </Hero.Body>
           </Hero>
 
-          <Section size='large' className='has-text-centered' style={{position: 'relative'}} />
+          {false && <Section size='large' className='has-text-centered' style={{position: 'relative'}} />}
 
           {false && <Section size='large' className='has-text-centered' style={{position: 'relative', marginTop: '-50vh'}}>
             <FadeUpWhenVisible>

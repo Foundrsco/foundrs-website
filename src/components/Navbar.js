@@ -1,7 +1,7 @@
 import Link from 'gatsby-link'
 
 import logo from '../img/logo.svg'
-
+import AnimatedLogo from './AnimatedLogo'
 import React from 'react'
 import Navbar from 'react-bulma-components/lib/components/navbar';
 import Button from 'react-bulma-components/lib/components/button'
@@ -38,7 +38,10 @@ export default class Navigation extends React.Component {
         active={open}
       >
         <Navbar.Brand>
-          <Link style={{lineHeight: '0'}} to="/" onClick={deactivateMenu}><img alt='Foundrs' src={logo} height='48' width='48' style={{height: '3.25rem', width: '3.25rem'}} /></Link>
+          <Link style={{lineHeight: '0'}} to="/" onClick={deactivateMenu}>
+            <span style={{display: 'block', width: '150px', padding: '16px'}}>
+              <AnimatedLogo fill='#ffffff' stroke='#ffffff' weight={1} />
+            </span></Link>
           
           <Navbar.Burger
             active={open.toString()}

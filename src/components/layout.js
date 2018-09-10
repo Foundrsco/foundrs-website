@@ -2,12 +2,22 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import Navbar from '../components/Navbar'
-
+import WebfontLoader from '@dr-kobros/react-webfont-loader'
 import '../layouts/all.sass'
+
+const config = {
+  google: {
+    families: ['Source Sans Pro:300,600']
+  }
+}
 
 const TemplateWrapper = ({ children }) => (
   <div>
-    <Helmet title='Foundrs' description='A community of the best company founders' />
+    <Helmet title='Foundrs'
+      meta={[
+        { name: 'description', content: 'A community of the best company founders' },
+        { name: 'google-site-verification', content: 'HAGUxrnqH6U0q1YibDaWpxcxzp3Carxts-kZYfd5ti8' }
+      ]} />
     <Navbar />
     <div>{children}</div>
     <div style={{display: 'none'}}>

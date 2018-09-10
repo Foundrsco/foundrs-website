@@ -7,7 +7,6 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-offline`,
     'gatsby-plugin-sass',
-    'gatsby-plugin-page-load-delay',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

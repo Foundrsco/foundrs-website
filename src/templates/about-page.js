@@ -38,7 +38,7 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
             <Hero size='large'>
               <Hero.Body className='has-text-centered is-fullwidth'>
                 <FadeUpWhenVisible>
-                  <Heading className='has-text-centered is-fullwidth'>{title}</Heading>
+                  <Heading className='has-text-centered is-fullwidth' size={1}>{title}</Heading>
                 </FadeUpWhenVisible>
               </Hero.Body>
             </Hero>

@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import kebabCase from 'lodash.kebabcase'
 import Helmet from 'react-helmet'
-import Link from 'gatsby-link'
 import Content, { HTMLContent } from '../components/Content'
 import { graphql } from 'gatsby'
 
