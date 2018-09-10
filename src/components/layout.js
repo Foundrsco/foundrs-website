@@ -45,6 +45,15 @@ const TemplateWrapper = ({ children }) => (
         </defs>
       </svg>
     </div>
+    <style jsx global>{`
+      @font-face {
+        font-family: 'Jostvf';
+        src: url('/fonts/jost-variable.ttf') format('truetype'),
+          url('/fonts/jost-variable.woff') format('woff'),
+          url('/fonts/jost-variable.woff2') format('woff2');
+        font-weight: 1 999;
+      }
+    `}</style>
   </div>
 )
 
