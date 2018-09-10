@@ -15,7 +15,7 @@ const TemplateWrapper = ({ children }) => (
     <Helmet title='Foundrs'
       meta={[
         { name: 'description', content: 'A community of the best company founders' },
-        { name: 'google-site-verification', content: 'HAGUxrnqH6U0q1YibDaWpxcxzp3Carxts-kZYfd5ti8' }
+        { name: 'google-site-verification', content: 'eZ3YKOvX8Frm-jT8dItfYIqidBXRESz0TPL-vZktBEU' }
       ]} />
     <Navbar />
     <div>{children}</div>
