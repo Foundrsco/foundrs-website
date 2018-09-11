@@ -1,6 +1,4 @@
 import Link from 'gatsby-link'
-
-import logo from '../img/logo.svg'
 import AnimatedLogo from './AnimatedLogo'
 import React from 'react'
 import Navbar from 'react-bulma-components/lib/components/navbar';
@@ -46,7 +44,7 @@ export default class Navigation extends React.Component {
           <Navbar.Burger
             active={open.toString()}
             onClick={toggleMenu}
-            ariaLabel="Menu"
+            aria-label="Menu"
           />
         </Navbar.Brand>
         <Navbar.Menu active={open.toString()}>

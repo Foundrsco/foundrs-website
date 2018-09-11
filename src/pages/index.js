@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
-import AnimatedLogo from '../components/AnimatedLogo.js'
 import FadeUpWhenVisible from '../components/FadeUpWhenVisible.js'
 import Section from 'react-bulma-components/lib/components/section'
 import Button from 'react-bulma-components/lib/components/button'
@@ -10,8 +9,6 @@ import Container from 'react-bulma-components/lib/components/container'
 import Content from 'react-bulma-components/lib/components/content'
 import Heading from 'react-bulma-components/lib/components/heading'
 import Card from 'react-bulma-components/lib/components/card'
-import TrackVisibility from 'react-on-screen'
-import posed from 'react-pose'
 import SiteFooter from '../components/SiteFooter'
 import VisibleSplitText from '../components/VisibleSplitText'
 import Chevrons from '../components/Chevrons'
@@ -20,13 +17,12 @@ import TestimonialGrid from '../components/TestimonialGrid'
 import TriangularMotif from '../components/TriangularMotif'
 import SponsorsGrid from '../components/SponsorsGrid'
 import Layout from '../components/layout'
-import FadeInOnStart from '../components/FadeInOnStart'
 import { graphql } from 'gatsby'
 import triangularLogo from '../img/foundrs-white-f-on-black.svg'
+import TrackVisibility from 'react-on-screen'
 
 class CommunitySection extends React.Component {
   render () {
-    const {testimonials} = this.props
     return (
       <Hero id='community' size='fullheight' color='black'>
         <Hero.Body className='has-text-centered is-fullwidth'>
@@ -70,10 +66,18 @@ export default class IndexPage extends React.Component {
 
     return (
       <Layout>
-        <div style={{perspective: '1px', transformStyle: 'preserve-3d'}}>
+        <Section style={{backgroundColor: '#080808'}}>
 
-          <CommunitySection testimonials={testimonials.slice(0, 2)} />
-
+          <Section id='intro'>
+            <TrackVisibility once offset={100}>
+              {({ isVisible }) => (
+                <div style={{opacity: isVisible ? 1 : 0}}>
+                  <CommunitySection isVisible={isVisible} testimonials={testimonials.slice(0, 2)} />
+                </div>
+              )
+              }
+            </TrackVisibility>
+          </Section>
           <SectionTriangle background='#0a0a0a' foreground='#ffffff' />
 
           <Hero size='fullheight' color='white'>
@@ -185,7 +189,7 @@ export default class IndexPage extends React.Component {
               style={{zIndex: -1, width: '100%', height: 'auto', position: 'absolute', top: 0, left: 0, right: 0}} />
           </Section>}
           <SiteFooter />
-        </div>
+        </Section>
       </Layout>
     )
   }

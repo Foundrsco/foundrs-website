@@ -58,6 +58,7 @@ export const JoinPageTemplate = ({ title, content, contentComponent }) => {
       </Section>
 
       <iframe
+        title='join-foundrs-form'
         class='airtable-embed'
         src='https://airtable.com/embed/shr8vC92ceFTAATb5?backgroundColor=orange'
         frameBorder='0'

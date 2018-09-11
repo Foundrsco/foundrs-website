@@ -1,12 +1,7 @@
 import React from 'react'
-import Link from 'gatsby-link'
-import Button from 'react-bulma-components/lib/components/button'
-import Image from 'react-bulma-components/lib/components/image'
-import VisibleSplitText from './VisibleSplitText'
 import FadeUpWhenVisible from './FadeUpWhenVisible'
 import quoteStart from '../img/quote-marks-start.svg'
 import quoteEnd from '../img/quote-marks-end.svg'
-import Imgix from 'react-imgix'
 import LazyImage from './LazyImage'
 
 export default class TestimonialItem extends React.Component {

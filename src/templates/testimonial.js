@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import kebabCase from 'lodash.kebabcase'
 import Helmet from 'react-helmet'
-import Content, { HTMLContent } from '../components/Content'
+import { HTMLContent } from '../components/Content'
 import { graphql } from 'gatsby'
 
 export const TestimonialTemplate = ({
@@ -16,8 +15,6 @@ export const TestimonialTemplate = ({
   image,
   helmet
 }) => {
-  const TestimonialContent = contentComponent || Content
-
   return (
     <section className='section'>
       {helmet || ''}

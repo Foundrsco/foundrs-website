@@ -2,7 +2,7 @@ import React from 'react'
 
 export default class Chevrons extends React.Component {
   render () {
-    const {foreground, background, id, weight, width, height} = this.props
+    const {id, width, height} = this.props
     let {rotation, style} = this.props
     rotation = rotation || 0
     style = style || {}

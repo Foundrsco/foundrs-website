@@ -1,13 +1,9 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import posed from 'react-pose'
 import TrackVisibility from 'react-on-screen'
 
-const getRandomInt = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min
-}
-
 const LetterF = {
-  path: <path className='f' vectorEffect='non-scaling-stroke' d='M0,0H376.48L0,512Z' strokeLinecap='square' strokeLinejoin='miter' />,
+  path: <g translate='10 0'><path className='f' vectorEffect='non-scaling-stroke' d='M0,0H376.48L0,512Z' strokeLinecap='square' strokeLinejoin='miter' /></g>,
   bounds: [376.48, 512]
 }
 
@@ -50,7 +46,7 @@ const word = [LetterF, LetterO, LetterU, LetterN, LetterD, LetterR, LetterS]
 
 class FoundrsWord extends React.Component {
   render () {
-    const {weight, className} = this.props
+    const {weight} = this.props
 
     return (
       <div className='foundrs-word'>
@@ -72,14 +68,14 @@ const Falling = posed.div({
     y: 0,
     transition: { duration: 700 },
     opacity: 1,
-    scale: 0.75,
+    scale: 1,
     ease: 'circOut'
   },
   fall: {
-    y: '200vh',
-    transition: { duration: 4000 },
+    y: '24px',
+    transition: { duration: 1000 },
     opacity: 0,
-    scale: 0,
+    scale: 1,
     ease: 'circIn'
   }
 })
@@ -87,40 +83,13 @@ const Falling = posed.div({
 class Letter extends React.Component {
   render () {
     const { letter, weight, index } = this.props
-    const offset = 0 + index * 20
-    const isSlower = false //! !getRandomInt(0, 1)
-    const translation = -0.1
-    const parallaxData = [{
-      start: 'self',
-      end: '100vh',
-      properties: [
-        {
-          startValue: 1,
-          endValue: 0.5,
-          property: 'scale'
-        },
-        {
-          startValue: 0,
-          endValue: 1000 + (100 - ((index > 3) ? 4 + (4 - index) : index) * 200),
-          property: 'translateY'
-        }
-      ]
-    }
-    ]
-
     return (
       <div className='letter'>
-        <TrackVisibility>
-          {({ isVisible }) =>
-            <Falling pose={isVisible ? 'rise' : 'fall'}>
-              <svg viewBox={`0 0 ${378.82 + 8 * weight} ${512 + 8 * weight}`}>
-                <g transform={`translate(${weight * 4} ${weight * 4} )`} >
-                  {letter.path}
-                </g>
-              </svg>
-            </Falling>
-          }
-        </TrackVisibility>
+        <svg viewBox={`0 0 ${378.82 + 8 * weight} ${512 + 8 * weight}`}>
+          <g transform={`translate(${weight * 4} ${weight * 4} )`} >
+            {letter.path}
+          </g>
+        </svg>
       </div>
     )
   }
@@ -133,7 +102,13 @@ class AnimatedLogo extends React.Component {
     const letterStyle = {width: `${oneSeventh}%`}
     return (
       <div style={{width: '100%'}}>
-        <FoundrsWord weight={weight} />
+        <TrackVisibility>
+          {({ isVisible }) =>
+            <Falling pose={isVisible ? 'rise' : 'fall'}>
+              <FoundrsWord weight={weight} />
+            </Falling>
+          }
+        </TrackVisibility>
 
         <style>{`
 

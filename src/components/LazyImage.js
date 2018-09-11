@@ -6,7 +6,7 @@ export default class LazyImage extends React.Component {
     const {alt, src, className, style} = this.props
     const invisible = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
     return (
-      <TrackVisibility once offset='800'>
+      <TrackVisibility once offset={800}>
         {({ isVisible }) => <img src={isVisible ? src : invisible} alt={alt} style={style} className={className} />}
       </TrackVisibility>
     )
