@@ -66,9 +66,9 @@ export default class IndexPage extends React.Component {
 
     return (
       <Layout>
-        <Section style={{backgroundColor: '#080808'}}>
+        <div style={{backgroundColor: '#080808'}}>
 
-          <Section id='intro'>
+          <div id='intro'>
             <TrackVisibility once offset={100}>
               {({ isVisible }) => (
                 <div style={{opacity: isVisible ? 1 : 0}}>
@@ -77,7 +77,7 @@ export default class IndexPage extends React.Component {
               )
               }
             </TrackVisibility>
-          </Section>
+          </div>
           <SectionTriangle background='#0a0a0a' foreground='#ffffff' />
 
           <Hero size='fullheight' color='white'>
@@ -189,7 +189,7 @@ export default class IndexPage extends React.Component {
               style={{zIndex: -1, width: '100%', height: 'auto', position: 'absolute', top: 0, left: 0, right: 0}} />
           </Section>}
           <SiteFooter />
-        </Section>
+        </div>
       </Layout>
     )
   }

@@ -16,7 +16,11 @@ const TemplateWrapper = ({ children }) => (
       meta={[
         { name: 'description', content: 'A community of the best company founders' },
         { name: 'google-site-verification', content: 'eZ3YKOvX8Frm-jT8dItfYIqidBXRESz0TPL-vZktBEU' }
-      ]} />
+      ]}>
+      <link rel='preload' href='/fonts/jost-variable.woff2' as='font' type='font/woff2' crossorigin />
+      <link rel='preload' href='/fonts/jost-variable.woff' as='font' type='font/woff' crossorigin />
+      <link rel='preload' href='/fonts/jost-variable.ttf' as='font' type='font/truetype' crossorigin />
+    </Helmet>
     <Navbar />
     <div>{children}</div>
     <div style={{display: 'none'}}>
