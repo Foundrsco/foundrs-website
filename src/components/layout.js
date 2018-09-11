@@ -11,7 +11,7 @@ const config = {
 }
 
 const TemplateWrapper = ({ children }) => (
-  <div style={{padding: '0px', backgroundColor: '#080808'}}>
+  <div style={{padding: '0px'}}>
     <Helmet title='Foundrs'
       meta={[
         { name: 'description', content: 'A community of the best company founders' },
