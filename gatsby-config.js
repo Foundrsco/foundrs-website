@@ -5,7 +5,7 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    `gatsby-plugin-offline`,
+
     'gatsby-plugin-sass',
     {
       resolve: 'gatsby-source-filesystem',
@@ -58,6 +58,7 @@ module.exports = {
         icon: `src/img/foundrs-icon.png` // This path is relative to the root of the site.
       }
     },
+    `gatsby-plugin-offline`,
     // {
     //   resolve: `gatsby-plugin-favicon`,
     //   options: {
