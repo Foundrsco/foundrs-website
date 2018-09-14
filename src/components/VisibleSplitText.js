@@ -8,12 +8,10 @@ export default class VisibleSplitText extends React.Component {
     const charPoses = {
       enter: {
         opacity: 1,
-        y: 0,
         delay: ({ charIndex }) => charIndex * 5
       },
       exit: {
-        opacity: 0,
-        y: 32,
+        opacity: 0.5,
         delay: ({ charIndex }) => charIndex * 2
       }
     }

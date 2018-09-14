@@ -5,7 +5,7 @@ import React from 'react'
 const Box = posed.div({
   popped: {
     y: 0,
-    transition: { duration: 700 },
+    transition: { duration: 500 },
     opacity: 1
   },
   hidden: {

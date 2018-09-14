@@ -92,7 +92,7 @@ export default class IndexPage extends React.Component {
                 <Heading className='has-text-centered is-fullwidth'>
                   <VisibleSplitText text='We exist to enable Foundrs to give more, know more and be more' />
                 </Heading>
-                <TestimonialGrid testimonials={testimonials.slice(2, 4)} />
+                <TestimonialGrid fill='#0a0a0a' testimonials={testimonials.slice(2, 4)} />
               </Container>
             </Hero.Body>
           </Hero>
@@ -111,7 +111,7 @@ export default class IndexPage extends React.Component {
                 <Heading className='has-text-centered is-fullwidth'>
                   <VisibleSplitText text='To establish an active Foundrs community in 100 major cities globally' />
                 </Heading>
-                <TestimonialGrid testimonials={testimonials.slice(4, 6)} />
+                <TestimonialGrid fill='#ffffff' testimonials={testimonials.slice(4, 6)} />
               </Container>
             </Hero.Body>
           </Hero>

@@ -36,7 +36,7 @@ export default class Navigation extends React.Component {
         active={open}
       >
         <Navbar.Brand>
-          <Link style={{lineHeight: '0'}} to="/" onClick={deactivateMenu}>
+          <Link aria-label="Foundrs" style={{lineHeight: '0'}} to="/" onClick={deactivateMenu}>
             <span style={{display: 'block', width: '150px', padding: '16px'}}>
               <AnimatedLogo fill='#ffffff' stroke='#ffffff' weight={1} />
             </span></Link>

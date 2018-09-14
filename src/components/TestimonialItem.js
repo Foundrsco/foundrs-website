@@ -1,12 +1,13 @@
 import React from 'react'
 import FadeUpWhenVisible from './FadeUpWhenVisible'
-import quoteStart from '../img/quote-marks-start.svg'
-import quoteEnd from '../img/quote-marks-end.svg'
+// import quoteStart from '../img/quote-marks-start.svg'
+// import quoteEnd from '../img/quote-marks-end.svg'
 import LazyImage from './LazyImage'
+import QuoteMark from './QuoteMark'
 
 export default class TestimonialItem extends React.Component {
   render () {
-    const {testimonial} = this.props
+    const {testimonial, fill} = this.props
 
     return (
       <article
@@ -14,7 +15,9 @@ export default class TestimonialItem extends React.Component {
       >
         <FadeUpWhenVisible offset={200}>
           <div className='quote is-size-4'>
+            <QuoteMark fill={fill} mode='start' style={{width: '1.5rem', margin: 'auto', marginRight: '1rem'}} />
             {testimonial.frontmatter.testimonial}
+            <QuoteMark fill={fill} mode='end' style={{width: '1.5rem', margin: 'auto', marginLeft: '1rem'}} />
           </div>
         </FadeUpWhenVisible>
         <FadeUpWhenVisible>
@@ -42,27 +45,7 @@ export default class TestimonialItem extends React.Component {
             
             clip-path: circle(50%);
           }
-          .quote:before {
-            background-image: url(${quoteStart});
-            background-repeat: no-repeat;
-            background-size: 1.47rem 1rem;
-            width: 2rem;
-            height: 1rem;
-            display: inline-block;
-            content:"";
-            margin-right: 1rem;
-          }
-          .quote:after {
-            background-image: url(${quoteEnd});
-            background-repeat: no-repeat;
-            transform: rotate(90);
-            background-size: 1.47rem 1rem;
-            width: 2rem;
-            height: 1rem;
-            display: inline-block;
-            content:"";
-            margin-left: 1rem;
-          }
+          
         `}</style>
       </article>
     )

@@ -81,12 +81,15 @@ const Falling = posed.div({
 })
 
 class Letter extends React.Component {
+  static defaultProps = {
+    xOffset: 0
+  }
   render () {
-    const { letter, weight, index } = this.props
+    const { letter, weight, index, xOffset } = this.props
     return (
       <div className='letter'>
         <svg viewBox={`0 0 ${378.82 + 8 * weight} ${512 + 8 * weight}`}>
-          <g transform={`translate(${weight * 4} ${weight * 4} )`} >
+          <g transform={`translate(${xOffset + (weight * 4)} ${weight * 4} )`} >
             {letter.path}
           </g>
         </svg>
@@ -115,7 +118,7 @@ class AnimatedLogo extends React.Component {
           .foundrs-word {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-            grid-gap: 2%;
+            grid-gap: 5%;
             width: 100%;
             margin: auto;
           }
