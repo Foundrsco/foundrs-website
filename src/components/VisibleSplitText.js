@@ -8,13 +8,26 @@ export default class VisibleSplitText extends React.Component {
     const charPoses = {
       enter: {
         opacity: 1,
+        y: 0,
         delay: ({ charIndex }) => charIndex * 5
       },
       exit: {
         opacity: 0.5,
+        y: 0,
         delay: ({ charIndex }) => charIndex * 2
       }
     }
+
+    return (
+      <TrackVisibility>
+        {({ isVisible }) =>
+          <span className={`variable-text-in ${isVisible ? 'enter' : 'exit'}`}>
+            {text}
+          </span>
+        }
+      </TrackVisibility>
+    )
+
     return (
       <TrackVisibility>
         {({ isVisible }) =>

@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import Navbar from '../components/Navbar'
+import SiteFooter from '../components/SiteFooter'
 import '../layouts/all.sass'
 
 const config = {
@@ -23,6 +24,7 @@ const TemplateWrapper = ({ children }) => (
     </Helmet>
     <Navbar />
     <div>{children}</div>
+    <SiteFooter />
     <div style={{display: 'none'}}>
       <svg className='clip-svg'>
         <defs>
@@ -163,7 +165,7 @@ const TemplateWrapper = ({ children }) => (
 )
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.func
+  children: PropTypes.object
 }
 
 export default TemplateWrapper

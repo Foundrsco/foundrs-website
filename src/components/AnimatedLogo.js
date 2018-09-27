@@ -54,6 +54,7 @@ class FoundrsWord extends React.Component {
           <Letter
             key={i}
             index={i + 1}
+            offsetX={i === 0 ? 10 : 0}
             letter={WordLetter}
             weight={weight}
           />

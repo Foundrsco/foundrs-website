@@ -10,27 +10,27 @@ export default class SponsorsGrid extends React.Component {
     return (
       <div>
         <Columns>
-          {sponsors.slice(0, 3).map((sponsor) => (
+          {sponsors.slice(0, 3).map((sponsor, index) => (
             <Columns.Column key={sponsor.id}>
-              <FadeUpWhenVisible>
+              <FadeUpWhenVisible delay={index * 100}>
                 <LazyImage className='bw' src={`/img/sponsors/${sponsor.frontmatter.image}`} alt={`${sponsor.frontmatter.name} logo`} />
               </FadeUpWhenVisible>
             </Columns.Column>
           ))}
         </Columns>
         <Columns>
-          {sponsors.slice(3, 6).map((sponsor) => (
+          {sponsors.slice(3, 6).map((sponsor, index) => (
             <Columns.Column key={sponsor.id}>
-              <FadeUpWhenVisible>
+              <FadeUpWhenVisible delay={(2 + index) * 100}>
                 <LazyImage className='bw' src={`/img/sponsors/${sponsor.frontmatter.image}`} alt={`${sponsor.frontmatter.name} logo`} />
               </FadeUpWhenVisible>
             </Columns.Column>
           ))}
         </Columns>
         <Columns>
-          {sponsors.slice(6, 9).map((sponsor) => (
+          {sponsors.slice(6, 9).map((sponsor, index) => (
             <Columns.Column key={sponsor.id}>
-              <FadeUpWhenVisible>
+              <FadeUpWhenVisible delay={(4 + index) * 100}>
                 <LazyImage className='bw' src={`/img/sponsors/${sponsor.frontmatter.image}`} alt={`${sponsor.frontmatter.name} logo`} />
               </FadeUpWhenVisible>
             </Columns.Column>

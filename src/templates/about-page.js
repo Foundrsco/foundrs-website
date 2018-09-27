@@ -9,36 +9,23 @@ import Hero from 'react-bulma-components/lib/components/hero'
 // import PageTransition from 'gatsby-plugin-page-transitions'
 import triangle from '../img/foundrs-black-triangle.svg'
 import FadeUpWhenVisible from '../components/FadeUpWhenVisible'
-import SiteFooter from '../components/SiteFooter'
-import Layout from '../components/layout'
 import { graphql } from 'gatsby'
+import VisibleSplitText from '../components/VisibleSplitText'
 
 export const AboutPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || ContentDisplay
 
   return (
-    <Layout>
-      {/* <PageTransition
-        defaultStyle={{
-          transition: 'opacity 200ms cubic-bezier(0.47, 0, 0.75, 0.72)',
-          opacity: 0,
-          position: 'absolute',
-          width: '100%'
-        }}
-        transitionStyles={{
-          entering: { opacity: 0 },
-          entered: { opacity: 1 },
-          exiting: { opacity: 0 }
-        }}
-        transitionTime={200}
-      > */}
+    <div>
       <Section>
         <Container>
           <Content>
             <Hero size='large'>
               <Hero.Body className='has-text-centered is-fullwidth'>
                 <FadeUpWhenVisible>
-                  <Heading className='has-text-centered is-fullwidth' size={1}>{title}</Heading>
+                  <Heading className='has-text-centered is-fullwidth' size={1}>
+                    <VisibleSplitText text={title} />
+                  </Heading>
                 </FadeUpWhenVisible>
               </Hero.Body>
             </Hero>
@@ -55,9 +42,7 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
         </Container>
       </Section>
       <Section />
-      <SiteFooter />
-      {/*      </PageTransition>
-*/}    </Layout>
+    </div>
   )
 }
 

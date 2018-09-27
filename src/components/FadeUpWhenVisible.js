@@ -2,25 +2,45 @@ import TrackVisibility from 'react-on-screen'
 import posed from 'react-pose'
 import React from 'react'
 
-const Box = posed.div({
-  popped: {
-    y: 0,
-    transition: { duration: 500 },
-    opacity: 1
-  },
-  hidden: {
-    y: 48,
-    transition: { duration: 200 },
-    opacity: 0
-  }
-})
-
 export default class FadeUpWhenVisible extends React.Component {
+  static defaultProps = {
+    delay: 0,
+    y: 48,
+    inDuration: 500,
+    outDuration: 200
+  }
+
+  constructor (props) {
+    super(props)
+    this.state = {
+      firstRender: true
+    }
+    setTimeout( () => this.setState({firstRender: false}), 1000 )
+  }
+
   render () {
+    const {delay, y, outDuration, inDuration} = this.props
+    const Box = posed.div({
+      popped: {
+        y: 0,
+        transition: { duration: inDuration },
+        opacity: 1,
+        delay: delay
+      },
+      hidden: {
+        y: y,
+        transition: { duration: outDuration },
+        opacity: 0,
+        delay: delay
+      }
+    })
+    
     const {children, offset} = this.props
+    const {firstRender} = this.state
+    
     return (
       <TrackVisibility offset={offset}>
-        {({ isVisible }) => <Box pose={isVisible ? 'popped' : 'hidden'}>{children}</Box>}
+        {({ isVisible }) => <Box pose={(isVisible && (!firstRender)) ? 'popped' : 'hidden'}>{children}</Box>}
       </TrackVisibility>
     )
   }

@@ -34,6 +34,7 @@ export default class Navigation extends React.Component {
         fixed='top'
         color={'black'}
         active={open}
+        style={{overflow: 'hidden'}}
       >
         <Navbar.Brand>
           <Link aria-label="Foundrs" style={{lineHeight: '0'}} to="/" onClick={deactivateMenu}>
@@ -47,7 +48,7 @@ export default class Navigation extends React.Component {
             aria-label="Menu"
           />
         </Navbar.Brand>
-        <Navbar.Menu active={open.toString()}>
+        <Navbar.Menu active={open.toString()} backgroundColor="black">
           <Navbar.Container>
             
           </Navbar.Container>

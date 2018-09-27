@@ -14,7 +14,7 @@ export default class TestimonialItem extends React.Component {
         style={{maxWidth: '24rem', margin: 'auto'}}
       >
         <FadeUpWhenVisible offset={200}>
-          <div className='quote is-size-4'>
+          <div className='quote is-size-5'>
             <QuoteMark fill={fill} mode='start' style={{width: '1.5rem', margin: 'auto', marginRight: '1rem'}} />
             {testimonial.frontmatter.testimonial}
             <QuoteMark fill={fill} mode='end' style={{width: '1.5rem', margin: 'auto', marginLeft: '1rem'}} />
