@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import * as THREE from 'three';
 class ThreeScene extends Component {
+  static defaultProps = {
+    wireframe: false,
+    color: 0x282828,
+    backgroundColor: 0x080808
+  }
   componentDidMount() {
+    const {color, wireframe, backgroundColor} = this.props
     const width = this.mount.clientWidth
     const height = this.mount.clientHeight
     //ADD SCENE
@@ -14,7 +20,19 @@ class ThreeScene extends Component {
       10000
     )
 
-    const material = new THREE.MeshLambertMaterial({ color: 0x181818, emissive: 0x000000, reflectivity: 1 })
+    let material 
+    if(wireframe) {
+      material = new THREE.MeshBasicMaterial({
+        color: color,
+        wireframe: true
+      })
+    } else {
+      material = new THREE.MeshLambertMaterial({ 
+        color: color, 
+        emissive: 0x000000, 
+        reflectivity: 1 
+      })
+    }
 
     this.ambientLight = new THREE.AmbientLight( 0xffffff, 0.2)
     this.scene.add( this.ambientLight )
@@ -27,7 +45,7 @@ class ThreeScene extends Component {
     this.camera.position.z = 4
     //ADD RENDERER
     this.renderer = new THREE.WebGLRenderer({ antialias: true })
-    this.renderer.setClearColor('#080808')
+    this.renderer.setClearColor(backgroundColor)
     this.renderer.setSize(width, height)
     this.mount.appendChild(this.renderer.domElement)
     //ADD CUBE

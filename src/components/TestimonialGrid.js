@@ -21,7 +21,7 @@ export default class TestimonialGrid extends React.Component {
       <div style={style || {marginTop: '4rem'}}>
         <Columns centered>
           {items.map((item) => (
-            <Columns.Column key={item.node.id}>
+            <Columns.Column key={item.node.id} style={{paddingBottom: '4rem'}}>
               <TestimonialItem
                 fill={fill}
                 testimonial={item.node}

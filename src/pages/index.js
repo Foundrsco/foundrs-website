@@ -60,7 +60,9 @@ class CommunitySection extends React.Component {
         </div>
         <NoSSR>
           <div style={{zIndex: 0, position: 'absolute', top: '0px', left: '0px', width: '100%', height: '100vh'}}>
-            <ThreeScene />
+            <FadeUpWhenVisible partialVisibility delay={500} y={0} offset={-200}>
+              <ThreeScene backgroundColor={0x0a0a0a} />
+            </FadeUpWhenVisible>
           </div>
         </NoSSR>
       </div>
@@ -98,7 +100,15 @@ export default class IndexPage extends React.Component {
           <Hero size='fullheight' color='white'>
             <Hero.Body className='has-text-centered is-fullwidth'>
               <Container className='has-text-centered'>
+                <TestimonialGrid fill='#0a0a0a' testimonials={testimonials.slice(0, 3)} />
+              </Container>
+            </Hero.Body>
+          </Hero>
+          <Section size='medium' style={{backgroundImage: `url(${TriangleGradient})`, backgroundRepeat: 'repeat-x', backgroundSize: 'auto 100%'}} />
 
+          <Hero size='fullheight' color='black'>
+            <Hero.Body className='has-text-centered is-fullwidth'>
+              <Container className='has-text-centered'>
                 <Heading className='has-text-centered is-fullwidth' size={1}>
                   <VisibleSplitText text={'Build a better business'} />
                 </Heading>
@@ -109,17 +119,6 @@ export default class IndexPage extends React.Component {
                     </Heading>
                   </FadeUpWhenVisible>
                 </div>
-
-                <TestimonialGrid fill='#0a0a0a' testimonials={testimonials.slice(0, 3)} />
-              </Container>
-            </Hero.Body>
-          </Hero>
-          <Section size='medium' style={{backgroundImage: `url(${TriangleGradient})`, backgroundRepeat: 'repeat-x', backgroundSize: 'auto 100%'}} />
-
-          <Hero size='fullheight' color='black'>
-            <Hero.Body className='has-text-centered is-fullwidth'>
-              <Container className='has-text-centered'>
-                <TestimonialGrid fill='#ffffff' testimonials={testimonials} />
               </Container>
             </Hero.Body>
           </Hero>
@@ -139,18 +138,13 @@ export default class IndexPage extends React.Component {
                 <div style={{marginTop: '8rem', marginBottom: '8rem'}}>
                   <FadeUpWhenVisible>
                     <div style={{maxWidth: '30rem', margin: 'auto'}}>
-                      <Card>
-                        <Card.Content>
-                          <Heading className='has-text-weight-light has-text-centered is-fullwidth'>
-                            <VisibleSplitText text='Would you like to join?' />
-                          </Heading>
-                          <div className='has-text-centered'>
-                            <Button renderAs={Link} to='/apply' className='is-large' color='black'>
-                              How to apply
-                            </Button>
-                          </div>
-                        </Card.Content>
-                      </Card>
+
+                      <div className='has-text-centered'>
+                        <Button renderAs={Link} to='/apply' className='is-large' color='black'>
+                          How to apply
+                        </Button>
+                      </div>
+
                     </div>
                   </FadeUpWhenVisible>
                 </div>

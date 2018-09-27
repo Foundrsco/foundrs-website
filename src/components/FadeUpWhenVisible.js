@@ -7,7 +7,8 @@ export default class FadeUpWhenVisible extends React.Component {
     delay: 0,
     y: 48,
     inDuration: 500,
-    outDuration: 200
+    outDuration: 200,
+    partialVisibility: false
   }
 
   constructor (props) {
@@ -19,7 +20,7 @@ export default class FadeUpWhenVisible extends React.Component {
   }
 
   render () {
-    const {delay, y, outDuration, inDuration} = this.props
+    const {delay, y, outDuration, inDuration, partialVisibility} = this.props
     const Box = posed.div({
       popped: {
         y: 0,
@@ -39,7 +40,7 @@ export default class FadeUpWhenVisible extends React.Component {
     const {firstRender} = this.state
     
     return (
-      <TrackVisibility offset={offset}>
+      <TrackVisibility partialVisibility={partialVisibility} offset={offset}>
         {({ isVisible }) => <Box pose={(isVisible && (!firstRender)) ? 'popped' : 'hidden'}>{children}</Box>}
       </TrackVisibility>
     )

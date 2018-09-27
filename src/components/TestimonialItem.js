@@ -19,8 +19,6 @@ export default class TestimonialItem extends React.Component {
             {testimonial.frontmatter.testimonial}
             <QuoteMark fill={fill} mode='end' style={{width: '1.5rem', margin: 'auto', marginLeft: '1rem'}} />
           </div>
-        </FadeUpWhenVisible>
-        <FadeUpWhenVisible>
           <figure className='image is-128x128'>
             <LazyImage
               src={`https://foundrs.imgix.net/${testimonial.frontmatter.image}?w=256&h=256&fit=crop&auto=compress,format`}

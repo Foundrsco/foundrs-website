@@ -11,12 +11,21 @@ import triangle from '../img/foundrs-black-triangle.svg'
 import FadeUpWhenVisible from '../components/FadeUpWhenVisible'
 import { graphql } from 'gatsby'
 import VisibleSplitText from '../components/VisibleSplitText'
+import ThreeScene from '../components/ThreeScene'
+import NoSSR from 'react-no-ssr'
 
 export const AboutPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || ContentDisplay
 
   return (
     <div>
+      <NoSSR>
+        <div style={{zIndex: -1, position: 'absolute', top: '0px', left: '0px', bottom: '0px', right: '0px'}}>
+          <FadeUpWhenVisible delay={500} y={0}>
+            <ThreeScene wireframe color={0xf0f0f0} backgroundColor={0xffffff} />
+          </FadeUpWhenVisible>
+        </div>
+      </NoSSR>
       <Section>
         <Container>
           <Content>
@@ -28,6 +37,7 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
                   </Heading>
                 </FadeUpWhenVisible>
               </Hero.Body>
+
             </Hero>
 
             <div>
