@@ -5,12 +5,6 @@ import Navbar from '../components/Navbar'
 import SiteFooter from '../components/SiteFooter'
 import '../layouts/all.sass'
 
-const config = {
-  google: {
-    families: ['Source Sans Pro:300,600']
-  }
-}
-
 const TemplateWrapper = ({ children }) => (
   <div style={{padding: '0px'}}>
     <Helmet title='Foundrs'
