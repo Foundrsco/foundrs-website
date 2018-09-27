@@ -10,6 +10,7 @@ class ThreeScene extends Component {
     const {color, wireframe, backgroundColor} = this.props
     const width = this.mount.clientWidth
     const height = this.mount.clientHeight
+    const baseScale = this.mount.clientWidth * (60.0 / 1600.0)
     //ADD SCENE
     this.scene = new THREE.Scene()
     //ADD CAMERA
@@ -52,7 +53,7 @@ class ThreeScene extends Component {
     
     this.tetras = []
     for(let i = 0; i < 100; i++) {
-      let geometry = new THREE.TetrahedronGeometry( (( Math.random() * 0.5) + 0.5) * 60 )
+      let geometry = new THREE.TetrahedronGeometry( (( Math.random() * 0.5) + 0.5) * baseScale )
       let tetra = new THREE.Mesh(geometry, material)
       tetra.position.z = -1000 + Math.random()*400
       tetra.position.x = (Math.random() - 0.5) * width
