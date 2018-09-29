@@ -13,6 +13,7 @@ export default class VisibleSplitText extends React.Component {
 
   render () {
     const {text} = this.props
+    const {loaded} = this.state
     const charPoses = {
       enter: {
         opacity: 1,
