@@ -7,8 +7,15 @@ export default class VisibleSplitText extends React.Component {
     loaded: false
   }
 
+  static defaultProps = {
+    delay: 100
+  }
+
   componentDidMount () {
-    this.setState({loaded: true})
+    const {delay} = this.props
+    setTimeout(() => {
+      this.setState({loaded: true})
+    }, delay)
   }
 
   render () {
@@ -30,9 +37,9 @@ export default class VisibleSplitText extends React.Component {
     return (
       <TrackVisibility>
         {({ isVisible }) =>
-          <span className={`variable-text-in ${(loaded && isVisible) ? 'enter' : 'exit'}`}>
+          <span>{<span className={`variable-text-in ${(loaded && isVisible) ? 'enter' : 'exit'}`}>
             {text}
-          </span>
+          </span>}</span>
         }
       </TrackVisibility>
     )
