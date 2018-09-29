@@ -73,8 +73,11 @@ class CommunitySection extends React.Component {
 }
 
 export default class IndexPage extends React.Component {
+  state = {
+    loaded: false
+  }
   componentDidMount () {
-
+    this.setState({loaded: true})
   }
 
   render () {
@@ -85,9 +88,8 @@ export default class IndexPage extends React.Component {
 
     return (
       <div style={{backgroundColor: '#080808'}}>
-
         <div id='intro'>
-          <div style={{textAlign: 'center', opacity: ((isClientOrServer() === 'client')) ? 1 : 0}}>
+          <div style={{textAlign: 'center', opacity: ((loaded && (isClientOrServer() === 'client'))) ? 1 : 0}}>
             <CommunitySection />
           </div>
         </div>
