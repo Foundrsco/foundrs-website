@@ -59,9 +59,7 @@ class CommunitySection extends React.Component {
                   </div>
                 </Content>
               </Container>
-
             </Hero.Body>
-
           </Hero>
         </div>
         <NoSSR>
