@@ -3,6 +3,14 @@ import TrackVisibility from 'react-on-screen'
 import SplitText from 'react-pose-text'
 
 export default class VisibleSplitText extends React.Component {
+  state = {
+    loaded: false
+  }
+
+  componentDidMount () {
+    this.setState({loaded, true})
+  }
+  
   render () {
     const {text} = this.props
     const charPoses = {
@@ -21,28 +29,28 @@ export default class VisibleSplitText extends React.Component {
     return (
       <TrackVisibility>
         {({ isVisible }) =>
-          <span className={`variable-text-in ${isVisible ? 'enter' : 'exit'}`}>
+          <span className={`variable-text-in ${(loaded && isVisible) ? 'enter' : 'exit'}`}>
             {text}
           </span>
         }
       </TrackVisibility>
     )
 
-    return (
-      <TrackVisibility>
-        {({ isVisible }) =>
-          <span className={`variable-text-in ${isVisible ? 'enter' : 'exit'}`}>
-            <SplitText
-              visible={isVisible}
-              initialPose='exit'
-              pose={isVisible ? 'enter' : 'exit'}
-              charPoses={charPoses}
-            >
-              {text}
-            </SplitText>
-          </span>
-        }
-      </TrackVisibility>
-    )
+    // return (
+    //   <TrackVisibility>
+    //     {({ isVisible }) =>
+    //       <span className={`variable-text-in ${isVisible ? 'enter' : 'exit'}`}>
+    //         <SplitText
+    //           visible={isVisible}
+    //           initialPose='exit'
+    //           pose={isVisible ? 'enter' : 'exit'}
+    //           charPoses={charPoses}
+    //         >
+    //           {text}
+    //         </SplitText>
+    //       </span>
+    //     }
+    //   </TrackVisibility>
+    // )
   }
 }
