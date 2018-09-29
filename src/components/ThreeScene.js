@@ -1,19 +1,41 @@
-import React, { Component } from 'react';
-import * as THREE from 'three';
+import React, { Component } from 'react'
+import * as THREE from 'three'
+import posed from 'react-pose'
+
+const Fading = posed.div({
+  hidden: {
+    transition: { duration: 500 },
+    opacity: 0,
+    scale: 1,
+    ease: 'circOut'
+  },
+  visible: {
+    transition: { duration: 500 },
+    opacity: 1,
+    scale: 1,
+    ease: 'circIn'
+  }
+})
+
+
 class ThreeScene extends Component {
   static defaultProps = {
     wireframe: false,
     color: 0x282828,
-    backgroundColor: 0x080808
+    backgroundColor: 0x080808,
+    opacity: 1
+  }
+  state = {
+    pose: 'hidden'
   }
   componentDidMount() {
-    const {color, wireframe, backgroundColor} = this.props
+    const {color, wireframe, backgroundColor, opacity} = this.props
     const width = this.mount.clientWidth
     const height = this.mount.clientHeight
     const baseScale = this.mount.clientWidth * (60.0 / 1600.0)
-    //ADD SCENE
+    
     this.scene = new THREE.Scene()
-    //ADD CAMERA
+    
     this.camera = new THREE.PerspectiveCamera(
       35,
       width / height,
@@ -25,13 +47,17 @@ class ThreeScene extends Component {
     if(wireframe) {
       material = new THREE.MeshBasicMaterial({
         color: color,
-        wireframe: true
+        wireframe: true,
+        opacity: opacity,
+        transparent: (opacity != 1)
       })
     } else {
       material = new THREE.MeshLambertMaterial({ 
         color: color, 
         emissive: 0x000000, 
-        reflectivity: 1 
+        reflectivity: 1,
+        opacity: opacity,
+        transparent: (opacity != 1)
       })
     }
 
@@ -49,7 +75,6 @@ class ThreeScene extends Component {
     this.renderer.setClearColor(backgroundColor)
     this.renderer.setSize(width, height)
     this.mount.appendChild(this.renderer.domElement)
-    //ADD CUBE
     
     this.tetras = []
     for(let i = 0; i < 100; i++) {
@@ -78,6 +103,7 @@ class ThreeScene extends Component {
   start = () => {
     if (!this.frameId) {
       this.frameId = requestAnimationFrame(this.animate)
+      this.setState({pose: 'visible'})
     }
   }
   stop = () => {
@@ -96,11 +122,14 @@ class ThreeScene extends Component {
     this.renderer.render(this.scene, this.camera)
   }
   render(){
+    const {pose} = this.state
     return(
-      <div
-        style={{ width: '100%', height: '100vh' }}
-        ref={(mount) => { this.mount = mount }}
-      />
+      <Fading pose={pose} style={{ width: '100%', height: '100vh' }}>
+        <div
+          style={{ width: '100%', height: '100vh' }}
+          ref={(mount) => { this.mount = mount }}
+        />
+      </Fading>
     )
   }
 }

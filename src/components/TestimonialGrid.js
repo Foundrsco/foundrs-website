@@ -7,15 +7,22 @@ export default class TestimonialGrid extends React.Component {
   state = {
     items: [],
     numberToDisplay: 3,
-    offset: 0
+    offset: 0,
+    pose: 'fall'
   }
 
   static defaultProps = {
-    testimonials: []
+    testimonials: [],
+    speed: 10000
+  }
+
+  constructor (props) {
+    super(props)
+    
   }
 
   nextSet = (specifiedOffset = null) => {
-    console.log('nextSet')
+    console.log('nextSet', specifiedOffset)
     const {testimonials} = this.props
     const {offset, numberToDisplay} = this.state
     
@@ -25,43 +32,54 @@ export default class TestimonialGrid extends React.Component {
       this.setState({numberToDisplay: 3})
     }
 
-    const newOffset = specifiedOffset ? specifiedOffset : (offset + numberToDisplay)%(testimonials.length - numberToDisplay)
-
+    const newOffset = specifiedOffset ? specifiedOffset : (offset + numberToDisplay)%(testimonials.length)
+    console.log({newOffset})
     this.setState({
-      offset: newOffset, 
-      items: testimonials.slice(newOffset, newOffset + this.state.numberToDisplay)
+      pose: 'fall'
     })
+    setTimeout( () => {
+      this.setState({
+        offset: newOffset, 
+        items: testimonials.slice(newOffset, newOffset + this.state.numberToDisplay),
+        pose: 'fall'
+      })
+    }, 600)
+
+    setTimeout( () => {
+      this.setState({
+        pose: 'rise'
+      })
+    }, 650)
   }
 
   componentDidMount() {
-    setTimeout( () => this.nextSet(0), 100 )
-    setInterval( () => {
-      this.nextSet()
-    }, 5000 )
+    console.log('component did mount')
+    if(!this.initialTimeout) {
+      this.initialTimeout = setTimeout( () => this.nextSet(0), 100 )
+      this.nextSetInterval = setInterval( () => {
+        this.nextSet()
+      }, this.props.speed )
+    }
   }
-
 
   render () {
     const {style, fill} = this.props
-    const {items} = this.state
+    const {items, pose} = this.state
     return (
       <div 
         style={style || {marginTop: '4rem'}} 
         ref={(mount) => { this.mount = mount }}>
-        <FadeUpWhenVisible offset={200}>
           <Columns centered>
             {items.map((item) => (
               <Columns.Column key={item.node.id} style={{paddingBottom: '4rem'}}>
-                
                   <TestimonialItem
+                    pose={pose}
                     fill={fill}
                     testimonial={item.node}
-                    key={item.id} />
-                
+                    key={item.id} />                
               </Columns.Column>
             ))}
           </Columns>
-        </FadeUpWhenVisible>
       </div>
     )
   }

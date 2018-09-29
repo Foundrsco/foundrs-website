@@ -24,9 +24,7 @@ export const JoinPageTemplate = ({ title, content, contentComponent }) => {
     <div>
       <NoSSR>
         <div style={{zIndex: -1, position: 'absolute', top: '0px', left: '0px', bottom: '0px', right: '0px'}}>
-          <FadeUpWhenVisible partialVisibility delay={1000} y={0} offset={-200}>
-            <ThreeScene wireframe color={0xe0e0e0} backgroundColor={0xffffff} />
-          </FadeUpWhenVisible>
+          <ThreeScene wireframe color={0xe0e0e0} backgroundColor={0xffffff} />
         </div>
       </NoSSR>
       <Section>
@@ -34,7 +32,7 @@ export const JoinPageTemplate = ({ title, content, contentComponent }) => {
           <Content>
             <Hero size='large'>
               <Hero.Body className='has-text-centered is-fullwidth'>
-                <FadeUpWhenVisible>
+                <FadeUpWhenVisible partialVisibility>
                   <Heading className='has-text-centered is-fullwidth' size={1}>
                     <VisibleSplitText text={title} />
                   </Heading>

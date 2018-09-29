@@ -35,18 +35,18 @@ class CommunitySection extends React.Component {
           <Hero id='community' size='fullheight' color='black' style={{backgroundColor: 'transparent'}}>
             <Hero.Body className='has-text-centered is-fullwidth'>
               <Container className='has-text-centered is-fullwidth'>
-                <FadeUpWhenVisible delay={1500} y={10}>
+                <FadeUpWhenVisible partialVisibility delay={1500} y={10}>
                   <img src={triangularLogo} alt='Founders icon' width={128} height={128} data-pin-nopin='true' />
                 </FadeUpWhenVisible>
                 <Heading size={1} className='has-text-centered is-fullwidth'>
                   <VisibleSplitText text='A community of the world’s best founders' />
                 </Heading>
                 <Content style={{maxWidth: '30rem', margin: 'auto'}}>
-                  <FadeUpWhenVisible delay={1000} y={10}>
+                  <FadeUpWhenVisible partialVisibility delay={1000} y={10}>
                     <p className='is-size-5'>Foundrs is an invite-only community of entrepreneurs who share in one simple idea:</p>
                     <p className='is-size-5'>By parking our egos, letting down our guard and helping each other through meaningful and honest conversation, we will build better businesses together.</p>
                   </FadeUpWhenVisible>
-                  <FadeUpWhenVisible delay={1500} y={10}>
+                  <FadeUpWhenVisible partialVisibility delay={1500} y={10}>
                     <Button
                       renderAs={Link}
                       to='/apply'
@@ -64,9 +64,7 @@ class CommunitySection extends React.Component {
         </div>
         <NoSSR>
           <div style={{zIndex: 0, position: 'absolute', top: '0px', left: '0px', width: '100%', height: '100vh'}}>
-            <FadeUpWhenVisible partialVisibility delay={1000} y={0} offset={-200}>
-              <ThreeScene backgroundColor={0x0a0a0a} />
-            </FadeUpWhenVisible>
+            <ThreeScene backgroundColor={0x0a0a0a} opacity={0.5} />
           </div>
         </NoSSR>
       </div>
@@ -104,7 +102,7 @@ export default class IndexPage extends React.Component {
           </Hero>
           <Section size='medium' style={{backgroundImage: `url(${TriangleGradient})`, backgroundRepeat: 'repeat-x', backgroundSize: 'auto 100%'}} />
 
-          <Hero size='fullheight' color='black'>
+          <Hero size='large' color='black'>
             <Hero.Body className='has-text-centered is-fullwidth'>
               <Container className='has-text-centered'>
                 <Heading className='has-text-centered is-fullwidth' size={1}>
@@ -117,6 +115,15 @@ export default class IndexPage extends React.Component {
                     </Heading>
                   </FadeUpWhenVisible>
                 </div>
+                <FadeUpWhenVisible delay={1500} y={10}>
+                  <Button
+                    renderAs={Link}
+                    to='/apply'
+                    className='has-hover-weight is-large'
+                    color='white'
+                    outlined
+                    style={{marginTop: '3rem'}}>Apply to join</Button>
+                </FadeUpWhenVisible>
               </Container>
             </Hero.Body>
           </Hero>
@@ -139,7 +146,7 @@ export default class IndexPage extends React.Component {
 
                       <div className='has-text-centered'>
                         <Button renderAs={Link} to='/apply' className='is-large' color='black'>
-                          How to apply
+                          Apply to join
                         </Button>
                       </div>
 
