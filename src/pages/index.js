@@ -82,6 +82,7 @@ export default class IndexPage extends React.Component {
 
   render () {
     const { data } = this.props
+    const { loaded } = this.state
     const { edges: testimonials } = data.allTestimonials
     const { edges: sponsors } = data.allSponsors
     console.log({sponsors})
