@@ -23,6 +23,7 @@ export default class FadeUpWhenVisible extends React.Component {
 
   render () {
     const {delay, y, outDuration, inDuration, partialVisibility} = this.props
+    const {loaded} = this.state
     const Box = posed.div({
       popped: {
         y: 0,
