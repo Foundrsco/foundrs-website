@@ -23,6 +23,10 @@ import TriangleGradient from '../img/triangle-gradient.svg'
 import ThreeScene from '../components/ThreeScene'
 import NoSSR from 'react-no-ssr'
 
+const isClientOrServer = () => {
+  return (typeof window !== 'undefined' && window.document) ? 'client' : 'server'
+}
+
 class CommunitySection extends React.Component {
   render () {
     return (
@@ -60,7 +64,7 @@ class CommunitySection extends React.Component {
         </div>
         <NoSSR>
           <div style={{zIndex: 0, position: 'absolute', top: '0px', left: '0px', width: '100%', height: '100vh'}}>
-            <FadeUpWhenVisible partialVisibility delay={500} y={0} offset={-200}>
+            <FadeUpWhenVisible partialVisibility delay={1000} y={0} offset={-200}>
               <ThreeScene backgroundColor={0x0a0a0a} />
             </FadeUpWhenVisible>
           </div>
@@ -85,22 +89,16 @@ export default class IndexPage extends React.Component {
       <div style={{backgroundColor: '#080808'}}>
 
         <div id='intro'>
-          <TrackVisibility once offset={100}>
-            {({ isVisible }) => (
-              <div style={{opacity: isVisible ? 1 : 0}}>
-                <CommunitySection isVisible={isVisible} testimonials={testimonials.slice(0, 2)} />
-              </div>
-            )
-            }
-          </TrackVisibility>
+          <div style={{textAlign: 'center', opacity: ((isClientOrServer() === 'client')) ? 1 : 0}}>
+            <CommunitySection />
+          </div>
         </div>
 
-        <Section size='medium' style={{transform: 'rotate(180deg)', backgroundImage: `url(${TriangleGradient})`, backgroundRepeat: 'repeat-x', backgroundSize: 'auto 100%'}} />
         <div style={{backgroundColor: 'white'}}>
           <Hero size='fullheight' color='white'>
             <Hero.Body className='has-text-centered is-fullwidth'>
               <Container className='has-text-centered'>
-                <TestimonialGrid fill='#0a0a0a' testimonials={testimonials.slice(0, 3)} />
+                <TestimonialGrid fill='#0a0a0a' testimonials={testimonials} />
               </Container>
             </Hero.Body>
           </Hero>

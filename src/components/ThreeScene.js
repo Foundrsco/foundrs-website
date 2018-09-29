@@ -56,8 +56,8 @@ class ThreeScene extends Component {
       let geometry = new THREE.TetrahedronGeometry( (( Math.random() * 0.5) + 0.5) * baseScale )
       let tetra = new THREE.Mesh(geometry, material)
       tetra.position.z = -1000 + Math.random()*400
-      tetra.position.x = (Math.random() - 0.5) * width
-      tetra.position.y = (Math.random() - 0.5) * height
+      tetra.position.x = (Math.random() - 0.5) * (500 + (width / 2))
+      tetra.position.y = (Math.random() - 0.5) * (500 + (height / 2))
       tetra.rotation.x = Math.random() * 0.5
       tetra.rotation.x = Math.random() * 0.5
       tetra.rotation.y = Math.random() * 0.5

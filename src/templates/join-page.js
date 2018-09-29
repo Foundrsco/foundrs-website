@@ -24,8 +24,8 @@ export const JoinPageTemplate = ({ title, content, contentComponent }) => {
     <div>
       <NoSSR>
         <div style={{zIndex: -1, position: 'absolute', top: '0px', left: '0px', bottom: '0px', right: '0px'}}>
-          <FadeUpWhenVisible delay={500} y={0}>
-            <ThreeScene wireframe color={0xf0f0f0} backgroundColor={0xffffff} />
+          <FadeUpWhenVisible partialVisibility delay={1000} y={0} offset={-200}>
+            <ThreeScene wireframe color={0xe0e0e0} backgroundColor={0xffffff} />
           </FadeUpWhenVisible>
         </div>
       </NoSSR>
