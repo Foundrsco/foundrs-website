@@ -18,7 +18,7 @@ export default class FadeUpWhenVisible extends React.Component {
   componentDidMount () {
     setTimeout(() => {
       this.setState({loaded: true})
-    }, 100)
+    }, 200)
   }
 
   render () {

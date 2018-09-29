@@ -35,7 +35,7 @@ class CommunitySection extends React.Component {
           <Hero id='community' size='fullheight' color='black' style={{backgroundColor: 'transparent'}}>
             <Hero.Body className='has-text-centered is-fullwidth'>
               <Container className='has-text-centered is-fullwidth'>
-                <FadeUpWhenVisible partialVisibility delay={1500} y={10}>
+                <FadeUpWhenVisible partialVisibility delay={500} y={10}>
                   <img src={triangularLogo} alt='Founders icon' width={128} height={128} data-pin-nopin='true' />
                 </FadeUpWhenVisible>
                 <Heading size={1} className='has-text-centered is-fullwidth'>
