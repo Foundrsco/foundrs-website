@@ -14,7 +14,6 @@ const TemplateWrapper = ({ children }) => (
       ]}>
       <link rel='preload' href='/fonts/jost-variable.woff2' as='font' type='font/woff2' crossorigin />
       <link rel='preload' href='/fonts/jost-variable.woff' as='font' type='font/woff' crossorigin />
-      <link rel='preload' href='/fonts/jost-variable.ttf' as='font' type='font/truetype' crossorigin />
     </Helmet>
     <Navbar />
     <div>{children}</div>
