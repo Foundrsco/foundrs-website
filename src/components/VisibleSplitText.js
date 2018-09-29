@@ -8,9 +8,9 @@ export default class VisibleSplitText extends React.Component {
   }
 
   componentDidMount () {
-    this.setState({loaded, true})
+    this.setState({loaded: true})
   }
-  
+
   render () {
     const {text} = this.props
     const charPoses = {
