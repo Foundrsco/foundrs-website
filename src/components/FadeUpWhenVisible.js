@@ -16,11 +16,10 @@ export default class FadeUpWhenVisible extends React.Component {
   }
 
   componentDidMount () {
-    console.log("FadeUpWhenVisible component did mount")
     const ctx = this
     setTimeout(() => {
       ctx.setState({loaded: true})
-    }, 1000)
+    }, 100)
   }
 
   render () {

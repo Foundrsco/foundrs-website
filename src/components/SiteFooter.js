@@ -28,7 +28,8 @@ export default class SiteFooter extends React.Component {
             padding: '1rem',
             margin: 'auto',
             marginTop: '4rem',
-            display: 'inline-block'}}><strong>&copy; Foundrs.co</strong> | Foundrs is a not for profit community organisation. Made with ❤ in London.</p>
+            display: 'inline-block'}}><strong>&copy; Foundrs.co</strong> | Foundrs is a not for profit community organisation.
+            Made with ❤ in London by <a style={{textDecoration: 'underline'}} href='https://stef.io'>Stef</a>.</p>
           <Chevrons
             rotation={180}
             weight={4}

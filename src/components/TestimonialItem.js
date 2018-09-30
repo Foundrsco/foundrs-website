@@ -44,11 +44,20 @@ export default class TestimonialItem extends React.Component {
               alt={`A photo of ${testimonial.frontmatter.name}`}
             />
           </figure>
+          <figure className='bw' style={{width: '128px'}}>
+            <LazyImage
+              src={`https://foundrs.imgix.net/${testimonial.frontmatter.logo}?w=256&auto=compress,format`}
+              width={256}
+              style={{width: '100%', height: 'auto'}}
+              alt={`${testimonial.frontmatter.company} logo`}
+            />
+          </figure>
           <p>
             <span>
-              {testimonial.frontmatter.name} &mdash;<span>&nbsp;</span>
+              <strong>{testimonial.frontmatter.name}</strong> &mdash;<span>&nbsp;</span>
               {testimonial.frontmatter.title}<span>&nbsp;</span>
-              {testimonial.frontmatter.company}
+              <a style={{textDecoration: 'underline'}}
+                href={testimonial.frontmatter.url}>{testimonial.frontmatter.company}</a>
             </span>
           </p>
         </Falling>
@@ -57,8 +66,15 @@ export default class TestimonialItem extends React.Component {
             margin: auto;
             margin-bottom: 2rem;
             margin-top: 2rem;
-            
-            clip-path: circle(50%);
+            overflow: hidden;
+            border-radius: 64px;
+          }
+
+          .bw {
+            -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+            filter: grayscale(100%);
+            margin: 1rem;
+            max-height: 4rem;
           }
           
         `}</style>

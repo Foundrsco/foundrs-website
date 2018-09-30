@@ -46,38 +46,53 @@ const word = [LetterF, LetterO, LetterU, LetterN, LetterD, LetterR, LetterS]
 
 class FoundrsWord extends React.Component {
   render () {
-    const {weight} = this.props
+    const {weight, pose} = this.props
 
     return (
-      <div className='foundrs-word'>
-        {word.map((WordLetter, i) =>
-          <Letter
-            key={i}
-            index={i + 1}
-            offsetX={i === 0 ? 10 : 0}
-            letter={WordLetter}
-            weight={weight}
-            style={WordLetter === LetterF ? {transform: 'translateX(4px)'} : {}}
-          />
-        )}
-      </div>
+      <Appearing pose={pose} className='foundrs-word'>
+
+          {word.map((WordLetter, i) =>
+            <Letter
+              key={i}
+              index={i + 1}
+              offsetX={i === 0 ? 10 : 0}
+              letter={WordLetter}
+              weight={weight}
+              style={WordLetter === LetterF ? {transform: 'translateX(4px)'} : {}}
+              delay={i*100}
+            />
+          )}
+      </Appearing>
     )
   }
 }
 
+
+const Appearing = posed.div({
+  rise: {
+    opacity: 1,
+    ease: 'circOut',
+    staggerChildren: 100
+  },
+
+  fall: {
+    opacity: 0,
+    ease: 'circOut',
+    staggerChildren: 100
+  }
+})
+
 const Falling = posed.div({
   rise: {
-    y: 0,
+    x: 0,
     transition: { duration: 700 },
-    opacity: 1,
     scale: 1,
     ease: 'circOut'
   },
   fall: {
-    y: '24px',
-    transition: { duration: 1000 },
-    opacity: 0,
-    scale: 1,
+    x: '24px',
+    transition: { duration: 700 },
+    scale: 0,
     ease: 'circIn'
   }
 })
@@ -88,14 +103,22 @@ class Letter extends React.Component {
   }
   render () {
     const { letter, weight, index, xOffset, style } = this.props
+
+    const svg = (<svg viewBox={`0 0 ${378.82 + 8 * weight} ${512 + 8 * weight}`}>
+      <g transform={`translate(${xOffset + (weight * 4)} ${weight * 4} )`} >
+        {letter.path}
+      </g>
+    </svg>)
+
+    if(letter === LetterF) {
+      return (<div className='letter' style={style}>
+        {svg}
+      </div>)
+    }
     return (
-      <div className='letter' style={style}>
-        <svg viewBox={`0 0 ${378.82 + 8 * weight} ${512 + 8 * weight}`}>
-          <g transform={`translate(${xOffset + (weight * 4)} ${weight * 4} )`} >
-            {letter.path}
-          </g>
-        </svg>
-      </div>
+      <Falling className='letter' style={style}>
+        {svg}
+      </Falling>
     )
   }
 }
@@ -109,9 +132,7 @@ class AnimatedLogo extends React.Component {
       <div style={{width: '100%'}}>
         <TrackVisibility>
           {({ isVisible }) =>
-            <Falling pose={isVisible ? 'rise' : 'fall'}>
-              <FoundrsWord weight={weight} />
-            </Falling>
+            <FoundrsWord weight={weight} pose={isVisible ? 'rise' : 'fall'} />
           }
         </TrackVisibility>
 
