@@ -21,13 +21,13 @@ module.exports = {
         name: 'images'
       }
     },
-    {
-      resolve: 'gatsby-plugin-webpack-bundle-analyzer',
-      options: {
-        analyzerPort: 3333,
-        production: true
-      }
-    },
+    // {
+    //   resolve: 'gatsby-plugin-webpack-bundle-analyzer',
+    //   options: {
+    //     analyzerPort: 3333,
+    //     production: true
+    //   }
+    // },
     `gatsby-plugin-styled-jsx`,
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',

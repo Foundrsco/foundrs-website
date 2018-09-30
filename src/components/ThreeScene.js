@@ -33,7 +33,8 @@ class ThreeScene extends Component {
     const width = this.mount.clientWidth
     const height = this.mount.clientHeight
     const baseScale = this.mount.clientWidth * (60.0 / 1600.0)
-    
+    this.mountWidth = width
+    this.mountHeight = height
     this.scene = new THREE.Scene()
     
     this.camera = new THREE.PerspectiveCamera(
@@ -68,7 +69,13 @@ class ThreeScene extends Component {
     this.scene.add( this.light )
 
     this.secondLight = new THREE.PointLight( 0xffffff, 2)
+    this.secondLight.position.x = 1000
     this.scene.add( this.secondLight )
+
+    this.thirdLight = new THREE.PointLight( 0xffffff, 2)
+    this.thirdLight.position.x = -1000
+    this.scene.add( this.thirdLight )
+
     this.camera.position.z = 4
     //ADD RENDERER
     this.renderer = new THREE.WebGLRenderer({ antialias: true })
@@ -115,6 +122,9 @@ class ThreeScene extends Component {
       this.tetras[i].rotation.y += this.tetras[i].yVel
       this.tetras[i].rotation.z += this.tetras[i].zVel
     }
+    if(this.props.position && this.props.position.y) {
+      this.camera.position.z = 4 + (this.props.position.y / this.mountHeight)
+    }
     this.renderScene()
     this.frameId = window.requestAnimationFrame(this.animate)
   }
@@ -124,9 +134,9 @@ class ThreeScene extends Component {
   render(){
     const {pose} = this.state
     return(
-      <Fading pose={pose} style={{ width: '100%', height: '100vh' }}>
+      <Fading pose={pose} style={{ width: '100%', height: '100%', lineHeight:'0px' }}>
         <div
-          style={{ width: '100%', height: '100vh' }}
+          style={{ width: '100%', height: '100%', lineHeight:'0px' }}
           ref={(mount) => { this.mount = mount }}
         />
       </Fading>

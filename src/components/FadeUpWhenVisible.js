@@ -16,8 +16,10 @@ export default class FadeUpWhenVisible extends React.Component {
   }
 
   componentDidMount () {
+    console.log("FadeUpWhenVisible component did mount")
+    const ctx = this
     setTimeout(() => {
-      this.setState({loaded: true})
+      ctx.setState({loaded: true})
     }, 1000)
   }
 
@@ -41,10 +43,13 @@ export default class FadeUpWhenVisible extends React.Component {
     
     const {children, offset} = this.props
     const {firstRender} = this.state
-    console.log("FadeUpWhenVisible render")
+    console.log("FadeUpWhenVisible render", {loaded})
+    if(!loaded ){
+      return <div style={{opacity: '0'}}>{children}</div>
+    }
     return (
       <TrackVisibility partialVisibility={partialVisibility} offset={offset}>
-        {({ isVisible }) => <Box pose={(isVisible && loaded) ? 'popped' : 'hidden'}>{children}</Box>}
+        {({ isVisible }) => <Box pose={(isVisible) ? 'popped' : 'hidden'}>{children}</Box>}
       </TrackVisibility>
     )
   }

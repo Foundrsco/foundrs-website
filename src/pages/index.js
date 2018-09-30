@@ -11,11 +11,8 @@ import Heading from 'react-bulma-components/lib/components/heading'
 import Card from 'react-bulma-components/lib/components/card'
 import VisibleSplitText from '../components/VisibleSplitText'
 import Chevrons from '../components/Chevrons'
-// import SectionTriangle from '../components/SectionTriangle'
 import TestimonialGrid from '../components/TestimonialGrid'
-// import TriangularMotif from '../components/TriangularMotif'
 import SponsorsGrid from '../components/SponsorsGrid'
-// import Layout from '../components/layout'
 import { graphql } from 'gatsby'
 import triangularLogo from '../img/foundrs-white-f-on-black.svg'
 import TrackVisibility from 'react-on-screen'
@@ -30,40 +27,46 @@ const isClientOrServer = () => {
 class CommunitySection extends React.Component {
   render () {
     return (
-      <div style={{background: '#080808', overflow: 'hidden', position: 'relative', width: '100%', height: '100vh'}}>
-        <div style={{zIndex: 1, position: 'absolute', top: '0px', left: '0px', width: '100%', height: '100vh'}}>
+      <div style={{background: '#080808', overflow: 'hidden', position: 'relative', width: '100%'}}>
+        <div style={{zIndex: 1, position: 'relative', top: '0px', left: '0px', width: '100%'}}>
           <Hero id='community' size='fullheight' color='black' style={{backgroundColor: 'transparent'}}>
             <Hero.Body className='has-text-centered is-fullwidth'>
               <Container className='has-text-centered is-fullwidth'>
-                <FadeUpWhenVisible partialVisibility delay={500} y={10}>
+                <FadeUpWhenVisible delay={0}>
                   <img src={triangularLogo} alt='Founders icon' width={128} height={128} data-pin-nopin='true' />
                 </FadeUpWhenVisible>
                 <Heading size={1} className='has-text-centered is-fullwidth'>
-                  <VisibleSplitText delay={2000} text='A community of the world’s best founders' />
+                <FadeUpWhenVisible delay={200}>
+                  
+                    <VisibleSplitText delay={100} text='A community of the world’s best founders' />
+                  
+                </FadeUpWhenVisible>
                 </Heading>
                 <Content style={{maxWidth: '30rem', margin: 'auto'}}>
-                  <FadeUpWhenVisible partialVisibility delay={1000} y={10}>
+                  <FadeUpWhenVisible delay={400}>
                     <p className='is-size-5'>Foundrs is an invite-only community of entrepreneurs who share in one simple idea:</p>
+                  </FadeUpWhenVisible>
+                  <FadeUpWhenVisible delay={600}>
                     <p className='is-size-5'>By parking our egos, letting down our guard and helping each other through meaningful and honest conversation, we will build better businesses together.</p>
                   </FadeUpWhenVisible>
-                  <div style={{marginBottom: '4rem'}}>
-                    <FadeUpWhenVisible partialVisibility delay={1500} y={10}>
-                      <Button
-                        renderAs={Link}
-                        to='/apply'
-                        className='has-hover-weight is-large'
-                        color='white'
-                        outlined
-                        style={{marginTop: '3rem'}}>Apply to join</Button>
-                    </FadeUpWhenVisible>
-                  </div>
+                  <FadeUpWhenVisible delay={800}>
+                    <div style={{marginBottom: '4rem'}}>
+                        <Button
+                          renderAs={Link}
+                          to='/apply'
+                          className='has-hover-weight is-large'
+                          color='white'
+                          outlined
+                          style={{marginTop: '3rem'}}>Apply to join</Button>
+                    </div>
+                  </FadeUpWhenVisible>
                 </Content>
               </Container>
             </Hero.Body>
           </Hero>
         </div>
         <NoSSR>
-          <div style={{zIndex: 0, position: 'absolute', top: '0px', left: '0px', width: '100%', height: '100vh'}}>
+          <div style={{zIndex: 0, position: 'absolute', top: '0px', left: '0px', bottom: '0px', right: '0px', width: '100%'}}>
             <ThreeScene backgroundColor={0x0a0a0a} opacity={0.5} />
           </div>
         </NoSSR>
