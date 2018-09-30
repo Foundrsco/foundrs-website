@@ -35,10 +35,8 @@ class CommunitySection extends React.Component {
                   <img src={triangularLogo} alt='Founders icon' width={128} height={128} data-pin-nopin='true' />
                 </FadeUpWhenVisible>
                 <Heading size={1} className='has-text-centered is-fullwidth'>
-                <FadeUpWhenVisible partialVisibility delay={200}>
-                  
-                  <VisibleSplitText delay={100} text='A community of the world’s best founders' />
-                  
+                <FadeUpWhenVisible partialVisibility delay={200}>                  
+                  <VisibleSplitText delay={100} text='A community of the world’s best founders' />                  
                 </FadeUpWhenVisible>
                 </Heading>
                 <Content style={{maxWidth: '30rem', margin: 'auto'}}>
