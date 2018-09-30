@@ -103,7 +103,7 @@ export default class IndexPage extends React.Component {
               </Container>
             </Hero.Body>
           </Hero>
-          <Section size='medium' style={{backgroundImage: `url(${TriangleGradient})`, backgroundRepeat: 'repeat-x', backgroundSize: 'auto 100%'}} />
+          <Section size='large' style={{backgroundImage: `url(${TriangleGradient})`, backgroundRepeat: 'repeat-x', backgroundSize: 'auto 100%'}} />
 
           <Hero size='large' color='black'>
             <Hero.Body className='has-text-centered is-fullwidth'>
@@ -130,8 +130,6 @@ export default class IndexPage extends React.Component {
               </Container>
             </Hero.Body>
           </Hero>
-
-          <Section size='medium' style={{transform: 'rotate(180deg)', backgroundImage: `url(${TriangleGradient})`, backgroundRepeat: 'repeat-x', backgroundSize: 'auto 100%'}} />
 
           <Hero color='white'>
             <Hero.Body className='has-text-centered is-fullwidth'>
