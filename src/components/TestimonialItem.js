@@ -44,14 +44,7 @@ export default class TestimonialItem extends React.Component {
               alt={`A photo of ${testimonial.frontmatter.name}`}
             />
           </figure>
-          <figure className='bw' style={{width: '128px'}}>
-            <LazyImage
-              src={`https://foundrs.imgix.net/${testimonial.frontmatter.logo}?w=256&auto=compress,format`}
-              width={256}
-              style={{width: '100%', height: 'auto'}}
-              alt={`${testimonial.frontmatter.company} logo`}
-            />
-          </figure>
+
           <p>
             <span>
               <strong>{testimonial.frontmatter.name}</strong> &mdash;<span>&nbsp;</span>
@@ -60,6 +53,15 @@ export default class TestimonialItem extends React.Component {
                 href={testimonial.frontmatter.url}>{testimonial.frontmatter.company}</a>
             </span>
           </p>
+
+          <figure className='bw' style={{width: '128px'}}>
+            <LazyImage
+              src={`https://foundrs.imgix.net/${testimonial.frontmatter.logo}?w=256&auto=compress,format`}
+              width={256}
+              style={{width: '100%', height: 'auto'}}
+              alt={`${testimonial.frontmatter.company} logo`}
+            />
+          </figure>
         </Falling>
         <style>{`
           .image {
