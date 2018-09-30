@@ -15,7 +15,7 @@ const TemplateWrapper = ({ children }) => (
       ]}>
       <link rel='preload' href='/fonts/jost-variable.woff2' as='font' type='font/woff2' crossorigin />
       <link rel='preload' href='/fonts/jost-variable.woff' as='font' type='font/woff' crossorigin />
-      <meta property='og:image' content={sharingImage} />
+      <meta property='og:image' content={`https://foundrs.co/${sharingImage}`} />
     </Helmet>
     <Navbar />
     <div>{children}</div>
