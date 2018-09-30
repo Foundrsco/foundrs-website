@@ -36,6 +36,12 @@ export default class SponsorsGrid extends React.Component {
             margin: 1rem;
             max-height: 4rem;
           }
+
+          @media only screen and (max-width: 800px) {
+            .bw { 
+              max-width: 80vw;
+            }
+          }
         `}</style>
       </div>
     )

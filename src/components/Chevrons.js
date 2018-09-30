@@ -1,11 +1,20 @@
 import React from 'react'
 
 export default class Chevrons extends React.Component {
+  state = {
+    loaded: false
+  }
+  componentDidMount () {
+    this.setState({loaded: true})
+  }
   render () {
-    const {id, width, height} = this.props
+    const {id} = this.props
+    const width = typeof (window) === 'undefined' ? 200 : window.innerWidth
+    const height = typeof (window) === 'undefined' ? 200 : window.innerHeight * 0.5
     let {rotation, style} = this.props
     rotation = rotation || 0
     style = style || {}
+    style = Object.assign({}, style)
     style['transform'] = `rotate(${rotation})`
     return (
       <svg width={width} height={height} overflow='visible' style={style}

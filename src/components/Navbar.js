@@ -3,10 +3,12 @@ import AnimatedLogo from './AnimatedLogo'
 import React from 'react'
 import Navbar from 'react-bulma-components/lib/components/navbar';
 import Button from 'react-bulma-components/lib/components/button'
+import windowScrollPosition from 'window-scroll-position'
 
 export default class Navigation extends React.Component {
   state = {
-    open: false
+    open: false,
+    scrolled: false
   }
 
   onClickNav = () => {
@@ -25,8 +27,34 @@ export default class Navigation extends React.Component {
     })
   }
 
+  testScroll () {
+    if(windowScrollPosition().top > window.innerHeight) {
+      if(!this.state.scrolled) {
+        this.setState({
+          scrolled: true
+        })
+      }
+    } else {
+      if(this.state.scrolled) {
+        this.setState({
+          scrolled: false
+        })
+      }
+    }
+  }
+
+  componentDidMount () {
+    this.scrollInterval = setInterval(() => {
+      this.testScroll()
+    }, 500)
+  }
+
+  componentWillUnmount () {
+    clearInterval(this.scrollInterval)
+  }
+
   render () {
-    const {open} = this.state
+    const {open, scrolled} = this.state
     const toggleMenu = this.toggleMenu
     const deactivateMenu = this.deactivateMenu
     return (
@@ -39,7 +67,7 @@ export default class Navigation extends React.Component {
         <Navbar.Brand>
           <Link aria-label="Foundrs" style={{lineHeight: '0'}} to="/" onClick={deactivateMenu}>
             <span style={{display: 'block', width: '182px', padding: '16px'}}>
-              <AnimatedLogo fill='#ffffff' stroke='#ffffff' weight={1} />
+              <AnimatedLogo scrolled={scrolled} fill='#ffffff' stroke='#ffffff' weight={1} />
             </span></Link>
           
           <Navbar.Burger

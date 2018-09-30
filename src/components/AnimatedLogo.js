@@ -69,14 +69,10 @@ class FoundrsWord extends React.Component {
 
 const Appearing = posed.div({
   rise: {
-    opacity: 1,
-    ease: 'circOut',
     staggerChildren: 100
   },
 
   fall: {
-    opacity: 0,
-    ease: 'circOut',
     staggerChildren: 100
   }
 })
@@ -84,12 +80,14 @@ const Appearing = posed.div({
 const Falling = posed.div({
   rise: {
     x: 0,
+    opacity: 1,
     transition: { duration: 700 },
     scale: 1,
     ease: 'circOut'
   },
   fall: {
     x: '24px',
+    opacity: 0,
     transition: { duration: 700 },
     scale: 0,
     ease: 'circIn'
@@ -132,11 +130,11 @@ class AnimatedLogo extends React.Component {
   }
 
   render () {
-    const {stroke, fill, weight} = this.props
+    const {stroke, fill, weight, scrolled} = this.props
     const {loaded} = this.state
     return (
       <div style={{width: '100%'}}>
-        <FoundrsWord weight={weight} pose={(loaded) ? 'rise' : 'fall'} />
+        <FoundrsWord weight={weight} pose={(loaded && !scrolled) ? 'rise' : 'fall'} />
 
         <style>{`
 

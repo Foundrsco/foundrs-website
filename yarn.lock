@@ -12695,6 +12695,10 @@ window-scroll-manager@^1.1.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/window-scroll-manager/-/window-scroll-manager-1.1.2.tgz#1fdbbae74e7b5de9210b224bf851f0777cb34212"
 
+window-scroll-position@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/window-scroll-position/-/window-scroll-position-1.0.2.tgz#1ff92ea851c4a5715fa8135a53cfa9de8ea1c618"
+
 wordwrap@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"

@@ -42,8 +42,6 @@ export default class SiteFooter extends React.Component {
               id='chevrons'
               foreground='#0a0a0a'
               background='#ffffff'
-              width={typeof (window) === 'undefined' ? 1000 : window.innerWidth}
-              height={typeof (window) === 'undefined' ? 1000 : window.innerHeight * 0.5}
               style={{display: 'block', position: 'absolute', zIndex: -1, top: '0px'}} />
           </NoSSR>
         </div>
