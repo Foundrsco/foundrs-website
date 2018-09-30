@@ -21,9 +21,7 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
     <div>
       <NoSSR>
         <div style={{zIndex: -1, position: 'absolute', top: '0px', left: '0px', bottom: '0px', right: '0px'}}>
-          <FadeUpWhenVisible partialVisibility>
-            <ThreeScene wireframe color={0xe0e0e0} backgroundColor={0xffffff} />
-          </FadeUpWhenVisible>
+          <ThreeScene wireframe color={0xe0e0e0} backgroundColor={0xffffff} />
         </div>
       </NoSSR>
       <Section>
