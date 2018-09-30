@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import Navbar from '../components/Navbar'
 import SiteFooter from '../components/SiteFooter'
 import '../layouts/all.sass'
-import sharingImage from '../img/logo-split/foundrs-icon-huge.png'
+import sharingImage from '../img/foundrs-icon-huge.png'
 
 const TemplateWrapper = ({ children }) => (
   <div style={{padding: '0px'}}>
