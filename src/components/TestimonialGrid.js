@@ -26,7 +26,10 @@ export default class TestimonialGrid extends React.Component {
     const {testimonials} = this.props
     const {offset, numberToDisplay} = this.state
     
-    if(window.innerWidth < 1200) {
+    if(window.innerWidth < 960) {
+      this.setState({numberToDisplay: 1})
+    }
+    else if(window.innerWidth < 1200) {
       this.setState({numberToDisplay: 2})
     } else {
       this.setState({numberToDisplay: 3})
