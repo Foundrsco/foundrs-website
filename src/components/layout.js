@@ -13,6 +13,8 @@ const TemplateWrapper = ({ children }) => (
         { name: 'description', content: 'A community of the best company founders' },
         { name: 'google-site-verification', content: 'eZ3YKOvX8Frm-jT8dItfYIqidBXRESz0TPL-vZktBEU' }
       ]}>
+      <meta name='description' content='A community of the best company founders' />
+      <meta name='google-site-verification' content='eZ3YKOvX8Frm-jT8dItfYIqidBXRESz0TPL-vZktBEU' />
       <link rel='preload' href='/fonts/jost-variable.woff2' as='font' type='font/woff2' crossorigin />
       <link rel='preload' href='/fonts/jost-variable.woff' as='font' type='font/woff' crossorigin />
       <meta property='og:image' content={`https://foundrs.co/${sharingImage}`} />
