@@ -10,7 +10,6 @@ import Content from 'react-bulma-components/lib/components/content'
 import Heading from 'react-bulma-components/lib/components/heading'
 import Card from 'react-bulma-components/lib/components/card'
 import VisibleSplitText from '../components/VisibleSplitText'
-import Chevrons from '../components/Chevrons'
 import TestimonialGrid from '../components/TestimonialGrid'
 import SponsorsGrid from '../components/SponsorsGrid'
 import { graphql } from 'gatsby'
@@ -32,24 +31,24 @@ class CommunitySection extends React.Component {
           <Hero id='community' size='fullheight' color='black' style={{backgroundColor: 'transparent'}}>
             <Hero.Body className='has-text-centered is-fullwidth'>
               <Container className='has-text-centered is-fullwidth'>
-                <FadeUpWhenVisible delay={0}>
+                <FadeUpWhenVisible partialVisibility delay={0}>
                   <img src={triangularLogo} alt='Founders icon' width={128} height={128} data-pin-nopin='true' />
                 </FadeUpWhenVisible>
                 <Heading size={1} className='has-text-centered is-fullwidth'>
-                <FadeUpWhenVisible delay={200}>
+                <FadeUpWhenVisible partialVisibility delay={200}>
                   
-                    <VisibleSplitText delay={100} text='A community of the world’s best founders' />
+                  <VisibleSplitText delay={100} text='A community of the world’s best founders' />
                   
                 </FadeUpWhenVisible>
                 </Heading>
                 <Content style={{maxWidth: '30rem', margin: 'auto'}}>
-                  <FadeUpWhenVisible delay={400}>
+                  <FadeUpWhenVisible partialVisibility delay={400} style={{marginBottom: '2rem'}}>
                     <p className='is-size-5'>Foundrs is an invite-only community of entrepreneurs who share in one simple idea:</p>
                   </FadeUpWhenVisible>
-                  <FadeUpWhenVisible delay={600}>
+                  <FadeUpWhenVisible partialVisibility delay={600}>
                     <p className='is-size-5'>By parking our egos, letting down our guard and helping each other through meaningful and honest conversation, we will build better businesses together.</p>
                   </FadeUpWhenVisible>
-                  <FadeUpWhenVisible delay={800}>
+                  <FadeUpWhenVisible partialVisibility delay={800}>
                     <div style={{marginBottom: '4rem'}}>
                         <Button
                           renderAs={Link}
@@ -136,64 +135,19 @@ export default class IndexPage extends React.Component {
 
           <Section size='medium' style={{transform: 'rotate(180deg)', backgroundImage: `url(${TriangleGradient})`, backgroundRepeat: 'repeat-x', backgroundSize: 'auto 100%'}} />
 
-          <Hero size='fullheight' color='white'>
+          <Hero color='white'>
             <Hero.Body className='has-text-centered is-fullwidth'>
               <Container className='has-text-centered'>
-
                 <div style={{marginTop: '8rem', marginBottom: '8rem'}}>
                   <Heading className='has-text-centered is-fullwidth is-4'>
                     <VisibleSplitText text='Our sponsors' />
                   </Heading>
                   <SponsorsGrid sponsors={sponsors} />
                 </div>
-                <div style={{marginTop: '8rem', marginBottom: '8rem'}}>
-                  <FadeUpWhenVisible>
-                    <div style={{maxWidth: '30rem', margin: 'auto'}}>
-
-                      <div className='has-text-centered'>
-                        <Button renderAs={Link} to='/apply' className='is-large' color='black'>
-                          Apply to join
-                        </Button>
-                      </div>
-
-                    </div>
-                  </FadeUpWhenVisible>
-                </div>
               </Container>
-
             </Hero.Body>
           </Hero>
         </div>
-
-        {false && <Section size='large' className='has-text-centered' style={{position: 'relative'}} />}
-
-        {false && <Section size='large' className='has-text-centered' style={{position: 'relative', marginTop: '-50vh'}}>
-          <FadeUpWhenVisible>
-            <div style={{maxWidth: '30rem', margin: 'auto', paddingTop: '50vh'}}>
-              <Card>
-                <Card.Content>
-                  <Heading className='has-text-weight-light has-text-centered is-fullwidth'>
-                    <VisibleSplitText text='Would you like to join?' />
-                  </Heading>
-                  <div className='has-text-centered'>
-                    <Button renderAs={Link} to='/apply' className='is-large' color='black'>
-                      How to apply
-                    </Button>
-                  </div>
-                </Card.Content>
-              </Card>
-            </div>
-          </FadeUpWhenVisible>
-          <Chevrons
-            rotation={180}
-            weight={4}
-            id='intro'
-            foreground='#0a0a0a'
-            background='#ffffff'
-            width={typeof (window) === 'undefined' ? 1000 : window.innerWidth}
-            height={typeof (window) === 'undefined' ? 1000 : window.innerHeight * 1.5}
-            style={{zIndex: -1, width: '100%', height: 'auto', position: 'absolute', top: 0, left: 0, right: 0}} />
-        </Section>}
       </div>
     )
   }

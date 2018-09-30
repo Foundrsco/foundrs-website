@@ -3,7 +3,7 @@ import posed from 'react-pose'
 import TrackVisibility from 'react-on-screen'
 
 const LetterF = {
-  path: <g translate='10 0'><path className='f' vectorEffect='non-scaling-stroke' d='M0,0H376.48L0,512Z' strokeLinecap='square' strokeLinejoin='miter' /></g>,
+  path: <path className='f' vectorEffect='non-scaling-stroke' d='M0,0H376.48L0,512Z' strokeLinecap='square' strokeLinejoin='miter' />,
   bounds: [376.48, 512]
 }
 
@@ -57,6 +57,7 @@ class FoundrsWord extends React.Component {
             offsetX={i === 0 ? 10 : 0}
             letter={WordLetter}
             weight={weight}
+            style={WordLetter === LetterF ? {transform: 'translateX(4px)'} : {}}
           />
         )}
       </div>
@@ -86,9 +87,9 @@ class Letter extends React.Component {
     xOffset: 0
   }
   render () {
-    const { letter, weight, index, xOffset } = this.props
+    const { letter, weight, index, xOffset, style } = this.props
     return (
-      <div className='letter'>
+      <div className='letter' style={style}>
         <svg viewBox={`0 0 ${378.82 + 8 * weight} ${512 + 8 * weight}`}>
           <g transform={`translate(${xOffset + (weight * 4)} ${weight * 4} )`} >
             {letter.path}
@@ -119,7 +120,7 @@ class AnimatedLogo extends React.Component {
           .foundrs-word {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-            grid-gap: 5%;
+            grid-gap: 6px;
             width: 100%;
             margin: auto;
           }
