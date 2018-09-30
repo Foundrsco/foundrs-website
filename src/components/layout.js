@@ -8,7 +8,7 @@ import sharingImage from '../img/foundrs-icon-huge.png'
 
 const TemplateWrapper = ({ children }) => (
   <div style={{padding: '0px'}}>
-    <Helmet title='Foundrs'
+    <Helmet htmlAttributes={{ lang: 'en' }} title='Foundrs'
       meta={[
         { name: 'description', content: 'A community of the best company founders' },
         { name: 'google-site-verification', content: 'eZ3YKOvX8Frm-jT8dItfYIqidBXRESz0TPL-vZktBEU' }
