@@ -36,25 +36,26 @@ export default class TestimonialItem extends React.Component {
             {testimonial.frontmatter.testimonial}
             <QuoteMark fill={fill} mode='end' style={{width: '1.5rem', margin: 'auto', marginLeft: '1rem'}} />
           </div>
-          <figure className='image is-128x128'>
+          <figure className='is-128x128'>
             <LazyImage
               src={`https://foundrs.imgix.net/${testimonial.frontmatter.image}?w=256&h=256&fit=crop&auto=compress,format`}
               width={256}
               height={256}
               alt={`A photo of ${testimonial.frontmatter.name}`}
+              className='image is-128x128'
             />
           </figure>
 
           <p>
             <span>
               <strong>{testimonial.frontmatter.name}</strong> &mdash;<span>&nbsp;</span>
-              {testimonial.frontmatter.title}<span>&nbsp;</span>
+              Founder<span>&nbsp;</span>
               <a style={{textDecoration: 'underline'}}
                 href={testimonial.frontmatter.url}>{testimonial.frontmatter.company}</a>
             </span>
           </p>
 
-          <figure className='bw' style={{width: '128px'}}>
+          <figure className='bw' style={{width: '128px', margin: 'auto', marginTop: '2rem'}}>
             <LazyImage
               src={`https://foundrs.imgix.net/${testimonial.frontmatter.logo}?w=256&auto=compress,format`}
               width={256}

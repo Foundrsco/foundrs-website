@@ -177,6 +177,7 @@ export const pageQuery = graphql`
             name
             title
             company
+            logo
             url
             image
             testimonial            

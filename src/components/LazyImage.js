@@ -14,7 +14,7 @@ const Fading = posed.div({
     y: '24px',
     transition: { duration: 2000 },
     opacity: 0,
-    scale: 1.5,
+    scale: 1,
     ease: 'circIn'
   }
 })

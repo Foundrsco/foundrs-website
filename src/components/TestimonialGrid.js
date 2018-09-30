@@ -61,6 +61,10 @@ export default class TestimonialGrid extends React.Component {
     }
   }
 
+  componentWillUnmount () {
+    clearInterval(this.nextSetInterval)
+  }
+
   render () {
     const {style, fill} = this.props
     const {items, pose} = this.state
