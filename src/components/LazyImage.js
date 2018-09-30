@@ -27,11 +27,6 @@ class LoadableImage extends React.Component {
     src: null
   }
 
-  constructor (props) {
-    super(props)
-    
-  }
-
   preloadImage (src) {
     if(this.state.image) {
       return
@@ -46,7 +41,7 @@ class LoadableImage extends React.Component {
   componentDidMount () {
     setTimeout(() => this.preloadImage(this.props.src), 100)
   }
-  
+
   componentDidUpdate (prevProps, prevState) {
     if(prevProps.visible && !prevState.image) {
       this.preloadImage(prevProps.src)

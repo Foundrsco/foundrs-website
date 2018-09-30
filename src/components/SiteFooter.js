@@ -1,7 +1,5 @@
-import Footer from 'react-bulma-components/lib/components/footer'
 import React from 'react'
 import Chevrons from '../components/Chevrons'
-import Section from 'react-bulma-components/lib/components/section'
 import FadeUpWhenVisible from '../components/FadeUpWhenVisible.js'
 import Link from 'gatsby-link'
 import Button from 'react-bulma-components/lib/components/button'

@@ -1,6 +1,5 @@
 import React from 'react'
 import TrackVisibility from 'react-on-screen'
-import SplitText from 'react-pose-text'
 
 export default class VisibleSplitText extends React.Component {
   state = {
@@ -21,18 +20,6 @@ export default class VisibleSplitText extends React.Component {
   render () {
     const {text} = this.props
     const {loaded} = this.state
-    const charPoses = {
-      enter: {
-        opacity: 1,
-        y: 0,
-        delay: ({ charIndex }) => charIndex * 5
-      },
-      exit: {
-        opacity: 0.5,
-        y: 0,
-        delay: ({ charIndex }) => charIndex * 2
-      }
-    }
 
     return (
       <TrackVisibility>
@@ -43,22 +30,5 @@ export default class VisibleSplitText extends React.Component {
         }
       </TrackVisibility>
     )
-
-    // return (
-    //   <TrackVisibility>
-    //     {({ isVisible }) =>
-    //       <span className={`variable-text-in ${isVisible ? 'enter' : 'exit'}`}>
-    //         <SplitText
-    //           visible={isVisible}
-    //           initialPose='exit'
-    //           pose={isVisible ? 'enter' : 'exit'}
-    //           charPoses={charPoses}
-    //         >
-    //           {text}
-    //         </SplitText>
-    //       </span>
-    //     }
-    //   </TrackVisibility>
-    // )
   }
 }

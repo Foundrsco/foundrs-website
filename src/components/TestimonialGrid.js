@@ -1,7 +1,6 @@
 import React from 'react'
 import Columns from 'react-bulma-components/lib/components/columns'
 import TestimonialItem from '../components/TestimonialItem'
-import FadeUpWhenVisible from '../components/FadeUpWhenVisible'
 
 export default class TestimonialGrid extends React.Component {
   state = {
@@ -14,11 +13,6 @@ export default class TestimonialGrid extends React.Component {
   static defaultProps = {
     testimonials: [],
     speed: 10000
-  }
-
-  constructor (props) {
-    super(props)
-    
   }
 
   nextSet = (specifiedOffset = null) => {

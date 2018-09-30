@@ -1,6 +1,5 @@
 import React from 'react'
 import Columns from 'react-bulma-components/lib/components/columns'
-import FadeUpWhenVisible from '../components/FadeUpWhenVisible'
 import LazyImage from './LazyImage'
 
 export default class SponsorsGrid extends React.Component {

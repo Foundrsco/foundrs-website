@@ -50,7 +50,7 @@ class ThreeScene extends Component {
         color: color,
         wireframe: true,
         opacity: opacity,
-        transparent: (opacity != 1)
+        transparent: (opacity !== 1)
       })
     } else {
       material = new THREE.MeshLambertMaterial({ 
@@ -58,7 +58,7 @@ class ThreeScene extends Component {
         emissive: 0x000000, 
         reflectivity: 1,
         opacity: opacity,
-        transparent: (opacity != 1)
+        transparent: (opacity !== 1)
       })
     }
 

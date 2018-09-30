@@ -8,13 +8,11 @@ import Hero from 'react-bulma-components/lib/components/hero'
 import Container from 'react-bulma-components/lib/components/container'
 import Content from 'react-bulma-components/lib/components/content'
 import Heading from 'react-bulma-components/lib/components/heading'
-import Card from 'react-bulma-components/lib/components/card'
 import VisibleSplitText from '../components/VisibleSplitText'
 import TestimonialGrid from '../components/TestimonialGrid'
 import SponsorsGrid from '../components/SponsorsGrid'
 import { graphql } from 'gatsby'
 import triangularLogo from '../img/foundrs-white-f-on-black.svg'
-import TrackVisibility from 'react-on-screen'
 import TriangleGradient from '../img/triangle-gradient.svg'
 import ThreeScene from '../components/ThreeScene'
 import NoSSR from 'react-no-ssr'
@@ -85,10 +83,10 @@ export default class IndexPage extends React.Component {
     const { loaded } = this.state
     const { edges: testimonials } = data.allTestimonials
     const { edges: sponsors } = data.allSponsors
-    console.log({sponsors})
 
     return (
       <div style={{backgroundColor: '#080808'}}>
+
         <div id='intro'>
           <div style={{textAlign: 'center', opacity: ((loaded && (isClientOrServer() === 'client'))) ? 1 : 0}}>
             <CommunitySection />

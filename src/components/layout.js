@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import Navbar from '../components/Navbar'
 import SiteFooter from '../components/SiteFooter'
 import '../layouts/all.sass'
+import sharingImage from '../img/logo-split/foundrs-icon-huge.png'
 
 const TemplateWrapper = ({ children }) => (
   <div style={{padding: '0px'}}>
@@ -14,6 +15,9 @@ const TemplateWrapper = ({ children }) => (
       ]}>
       <link rel='preload' href='/fonts/jost-variable.woff2' as='font' type='font/woff2' crossorigin />
       <link rel='preload' href='/fonts/jost-variable.woff' as='font' type='font/woff' crossorigin />
+      <Helmet>
+        <meta property='og:image' content={sharingImage} />
+      </Helmet>
     </Helmet>
     <Navbar />
     <div>{children}</div>

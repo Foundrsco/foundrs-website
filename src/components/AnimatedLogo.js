@@ -1,6 +1,5 @@
 import React from 'react'
 import posed from 'react-pose'
-import TrackVisibility from 'react-on-screen'
 
 const LetterF = {
   path: <path className='f' vectorEffect='non-scaling-stroke' d='M0,0H376.48L0,512Z' strokeLinecap='square' strokeLinejoin='miter' />,
@@ -102,7 +101,7 @@ class Letter extends React.Component {
     xOffset: 0
   }
   render () {
-    const { letter, weight, index, xOffset, style } = this.props
+    const { letter, weight, xOffset, style } = this.props
 
     const svg = (<svg viewBox={`0 0 ${378.82 + 8 * weight} ${512 + 8 * weight}`}>
       <g transform={`translate(${xOffset + (weight * 4)} ${weight * 4} )`} >
@@ -124,17 +123,20 @@ class Letter extends React.Component {
 }
 
 class AnimatedLogo extends React.Component {
+  state = {
+    loaded: false
+  }
+
+  componentDidMount() {
+    this.setState({loaded: true})
+  }
+
   render () {
     const {stroke, fill, weight} = this.props
-    const oneSeventh = 14.2857142857
-    const letterStyle = {width: `${oneSeventh}%`}
+    const {loaded} = this.state
     return (
       <div style={{width: '100%'}}>
-        <TrackVisibility>
-          {({ isVisible }) =>
-            <FoundrsWord weight={weight} pose={isVisible ? 'rise' : 'fall'} />
-          }
-        </TrackVisibility>
+        <FoundrsWord weight={weight} pose={(loaded) ? 'rise' : 'fall'} />
 
         <style>{`
 
