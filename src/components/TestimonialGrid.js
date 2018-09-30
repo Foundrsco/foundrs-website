@@ -56,7 +56,7 @@ export default class TestimonialGrid extends React.Component {
     if(!this.initialTimeout) {
       this.initialTimeout = setTimeout( () => this.nextSet(0), 100 )
       this.nextSetInterval = setInterval( () => {
-        //this.nextSet()
+        this.nextSet()
       }, this.props.speed )
     }
   }
