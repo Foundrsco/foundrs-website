@@ -112,13 +112,13 @@ export default class IndexPage extends React.Component {
                   <VisibleSplitText text={'Build a better business'} />
                 </Heading>
                 <div style={{maxWidth: '30em', margin: 'auto'}}>
-                  <FadeUpWhenVisible delay={1000} y={0}>
+                  <FadeUpWhenVisible delay={300} y={0}>
                     <Heading className='has-text-centered is-fullwidth' size={4}>
                       That isn't just better for you, your people and your customers, but better for the world we all leave behind us.
                     </Heading>
                   </FadeUpWhenVisible>
                 </div>
-                <FadeUpWhenVisible delay={1500} y={10}>
+                <FadeUpWhenVisible delay={500} y={10}>
                   <Button
                     renderAs={Link}
                     to='/apply'

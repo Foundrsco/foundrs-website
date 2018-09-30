@@ -42,7 +42,6 @@ export default class FadeUpWhenVisible extends React.Component {
     
     const {children, offset} = this.props
     const {firstRender} = this.state
-    console.log("FadeUpWhenVisible render", {loaded})
     if(!loaded ){
       return <div style={{opacity: '0'}}>{children}</div>
     }

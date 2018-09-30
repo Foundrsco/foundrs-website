@@ -27,13 +27,29 @@ class LoadableImage extends React.Component {
     src: null
   }
 
+  constructor (props) {
+    super(props)
+    
+  }
+
+  preloadImage (src) {
+    if(this.state.image) {
+      return
+    }
+    console.log('loadableimage preoad', src)
+    const image = new Image()
+    image.onload = () => this.setState({loaded: true})
+    image.src = src
+    this.setState({image, src})
+  }
+
+  componentDidMount () {
+    setTimeout(() => this.preloadImage(this.props.src), 100)
+  }
+  
   componentDidUpdate (prevProps, prevState) {
-    if(prevProps.visible && !prevState.loaded && !prevState.image) {
-      console.log('componentDidUpdate', {prevProps, prevState})
-      const image = new Image()
-      image.onload = () => this.setState({loaded: true})
-      image.src = prevProps.src
-      this.setState({image, src: prevProps.src})
+    if(prevProps.visible && !prevState.image) {
+      this.preloadImage(prevProps.src)
     }
   }
 
@@ -60,7 +76,7 @@ export default class LazyImage extends React.Component {
     
     const {alt, src, className, style} = this.props
     return (
-      <TrackVisibility once offset={800}>
+      <TrackVisibility once>
         {({ isVisible }) => <LoadableImage 
           src={src}
           visible={isVisible} 

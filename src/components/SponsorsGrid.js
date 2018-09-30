@@ -12,27 +12,21 @@ export default class SponsorsGrid extends React.Component {
         <Columns>
           {sponsors.slice(0, 3).map((sponsor, index) => (
             <Columns.Column key={sponsor.id}>
-              <FadeUpWhenVisible delay={index * 100}>
-                <LazyImage className='bw' src={`/img/sponsors/${sponsor.frontmatter.image}`} alt={`${sponsor.frontmatter.name} logo`} />
-              </FadeUpWhenVisible>
+              <LazyImage className='bw' src={`/img/sponsors/${sponsor.frontmatter.image}`} alt={`${sponsor.frontmatter.name} logo`} />
             </Columns.Column>
           ))}
         </Columns>
         <Columns>
           {sponsors.slice(3, 6).map((sponsor, index) => (
             <Columns.Column key={sponsor.id}>
-              <FadeUpWhenVisible delay={(2 + index) * 100}>
-                <LazyImage className='bw' src={`/img/sponsors/${sponsor.frontmatter.image}`} alt={`${sponsor.frontmatter.name} logo`} />
-              </FadeUpWhenVisible>
+              <LazyImage delay={(2 + index) * 100} className='bw' src={`/img/sponsors/${sponsor.frontmatter.image}`} alt={`${sponsor.frontmatter.name} logo`} />
             </Columns.Column>
           ))}
         </Columns>
         <Columns>
           {sponsors.slice(6, 9).map((sponsor, index) => (
             <Columns.Column key={sponsor.id}>
-              <FadeUpWhenVisible delay={(4 + index) * 100}>
-                <LazyImage className='bw' src={`/img/sponsors/${sponsor.frontmatter.image}`} alt={`${sponsor.frontmatter.name} logo`} />
-              </FadeUpWhenVisible>
+              <LazyImage delay={(4 + index) * 100} className='bw' src={`/img/sponsors/${sponsor.frontmatter.image}`} alt={`${sponsor.frontmatter.name} logo`} />
             </Columns.Column>
           ))}
         </Columns>
